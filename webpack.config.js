@@ -10,7 +10,7 @@ module.exports = {
     module: {
         loaders: [
             {
-                loader: 'babel-loader',
+                loader: 'babel',
                 exclude: /node_modules/,
                 test: path.join(__dirname, 'es6'),
                 query: {
@@ -18,5 +18,8 @@ module.exports = {
                 }
             }
         ]
+    },
+    devServer: {
+        port: 3000
     }
 };
