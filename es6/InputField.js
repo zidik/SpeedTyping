@@ -2,11 +2,12 @@
 import React from 'react';
 
 class WordField extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {value: ""};
         this.handleChange = this.handleChange.bind(this);
     }
+
     render() {
         return <input
             type="text"
