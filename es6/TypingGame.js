@@ -1,9 +1,8 @@
 "use strict";
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Statistics from "./Statistics.jsx";
-import InputField from "./InputField.jsx"
-import Words from "./Words.jsx"
+import Statistics from "./Statistics";
+import InputField from "./InputField"
+import Words from "./Words"
 
 class TypingGame extends React.Component {
     render() {
@@ -17,4 +16,4 @@ class TypingGame extends React.Component {
     }
 }
 
-ReactDOM.render(<TypingGame/>, document.getElementById('content'));
+export default TypingGame;

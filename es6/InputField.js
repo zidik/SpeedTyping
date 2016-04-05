@@ -20,4 +20,4 @@ class WordField extends React.Component {
     }
 }
 
-module.exports = WordField;
+export default WordField;

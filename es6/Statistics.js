@@ -12,4 +12,4 @@ TypingStatistics.propTypes = {
     acc: React.PropTypes.number.isRequired
 };
 
-module.exports = TypingStatistics;
+export default TypingStatistics;

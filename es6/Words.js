@@ -8,4 +8,4 @@ Words.propTypes = {
         .isRequired
 };
 
-module.exports = Words;
+export default Words;

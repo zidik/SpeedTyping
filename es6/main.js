@@ -1,8 +1,6 @@
 "use strict";
-import MyClass from "./MyClass.js";
-import Greeting from "./Greeting.js";
-import TypingGame from "./TypingGame.jsx";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import TypingGame from "./TypingGame";
 
-var myClass = new MyClass();
-myClass.sayHop();
-Greeting();
+ReactDOM.render(<TypingGame/>, document.getElementById('content'));
