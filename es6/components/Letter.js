@@ -5,8 +5,8 @@ import classNames from "classnames";
 const Letter = (props) => {
     var letterClass = classNames({
         'letter': true,
-        'letter-correct': props.correct,
-        'letter-incorrect': !props.correct
+        'correct': props.status == "correct",
+        'incorrect': props.status == "incorrect"
     });
     return <span className={letterClass}>{props.letter}</span>;
 }
@@ -14,7 +14,7 @@ const Letter = (props) => {
 
 Letter.propTypes = {
     letter: React.PropTypes.string.isRequired,
-    correct: React.PropTypes.bool
+    status: React.PropTypes.string
 };
 
 export default Letter

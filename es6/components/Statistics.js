@@ -3,8 +3,8 @@ import React from 'react';
 
 const TypingStatistics = (props) =>
     <div>
-        Words per minute: {props.wpm} <br />
-        Accuracy: {props.acc}%
+        Words per minute: {props.wpm.toFixed(2)} <br />
+        Accuracy: {props.acc.toFixed(2)}%
     </div>;
 
 TypingStatistics.propTypes = {

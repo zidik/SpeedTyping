@@ -85,8 +85,6 @@ ul {
 
 .words {
     box-sizing: border-box;
-    display: inline-block;
-    background: #fff;
     height: 9ex;
     overflow: hidden;
     line-height: 3ex;
@@ -94,44 +92,32 @@ ul {
     font-size: 160%;
     text-align: center;
     border: 0;
-    background: transparent;
 }
 
 .word {
-    display: inline-block;
     padding: 0 .25em;
-    position: relative;
     margin-right: .1em;
 }
 
-.word-correct {
-    background: green;
-}
-
-.word-incorrect {
-    background: red;
-}
-
-.word-current {
-    background: #b8e069;
+.word, .letter{
     border-radius: 5px;
 }
 
-.words .letter {
-    display: inline-block;
+.correct {
     background: #b8e069;
-    border-radius: 5px;
 }
 
-.words .letter-correct {
-    background: white;
+.incorrect {
+    background: #ff3245;
 }
 
-.words .letter-incorrect {
-    background: red;
+.current {
+    background: #fae882;
 }
 
-.wordsbox .typing-container{
+
+
+.typing-container{
     display: block;
     width: 100%;
     margin: auto;
@@ -139,7 +125,7 @@ ul {
     letter-spacing: 2px;
     font-size: 160%;
     text-align: center;
-    border: 0;
+    border: 1px solid black;
     background: transparent;
     font-family: "Open Sans","DejaVu Sans","Bitstream Vera Sans","Arial",sans-serif;
 }
