@@ -7,7 +7,7 @@ const compareChars = ([ref,usr]) => {
     if (typeof usr === "undefined") return "";
     if (ref==usr) return "correct";
     return "incorrect";
-}
+};
 
 class WordContainer extends React.Component {
     render()  {

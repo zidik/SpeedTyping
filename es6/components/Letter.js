@@ -9,7 +9,7 @@ const Letter = (props) => {
         'incorrect': props.status == "incorrect"
     });
     return <span className={letterClass}>{props.letter}</span>;
-}
+};
 
 
 Letter.propTypes = {
@@ -17,4 +17,4 @@ Letter.propTypes = {
     status: React.PropTypes.string
 };
 
-export default Letter
+export default Letter;

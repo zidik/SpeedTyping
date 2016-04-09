@@ -3,13 +3,13 @@ import React from 'react';
 
 const TypingStatistics = (props) =>
     <div>
-        Words per minute: {props.wpm.toFixed(2)} <br />
-        Accuracy: {props.acc.toFixed(2)}%
+        Words per minute: {props.wpm} <br />
+        Accuracy: {props.acc}%
     </div>;
 
 TypingStatistics.propTypes = {
-    wpm: React.PropTypes.number.isRequired,
-    acc: React.PropTypes.number.isRequired
+    wpm: React.PropTypes.string.isRequired,
+    acc: React.PropTypes.string.isRequired
 };
 
 export default TypingStatistics;

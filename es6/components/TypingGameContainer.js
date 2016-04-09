@@ -1,4 +1,5 @@
 "use strict";
+
 import React from 'react';
 import TypingGame from "./TypingGame"
 
@@ -21,7 +22,7 @@ class TypingGameContainer extends React.Component {
     }
 
     handleInputChange(e) {
-        var curInput = this.state.currentInput;
+        //var curInput = this.state.currentInput;
         var newInput = e.target.value;
 
         //Disable deletion

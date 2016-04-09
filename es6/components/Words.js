@@ -16,6 +16,7 @@ const toWord = (activeWordIndex) => ([word, playerWord], index) => {
 };
 
 const Words = (props) => <div className="words">{zipLeft(props.words, props.playerWords).map(toWord(props.active))}</div>;
+
 Words.propTypes = {
     words: React.PropTypes
         .arrayOf(React.PropTypes.string)

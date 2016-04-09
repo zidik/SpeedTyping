@@ -15,6 +15,8 @@ TypingGame.propTypes = {
     words: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
     playerWords: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
     activeWordIndex: React.PropTypes.number.isRequired,
+    inputValue: React.PropTypes.string.isRequired,
+    onInputChange: React.PropTypes.func.isRequired,
     startTime: React.PropTypes.number.isRequired
 };
 
