@@ -1,7 +1,7 @@
 "use strict";
 import React from 'react';
 import StatisticsContainer from "./StatisticsContainer";
-import InputField from "./WordField"
+import InputField from "./InputField"
 import Words from "./Words"
 
 const TypingGame = (props)=><div>

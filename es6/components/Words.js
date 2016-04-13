@@ -1,7 +1,7 @@
 "use strict";
 import React from 'react';
 import WordContainer from "./WordContainer";
-import {zipLeft} from "./../zip";
+import R from "ramda";
 
 const toWord = (activeWordIndex) => ([word, playerWord], index) => {
     var wordStatus;
@@ -15,7 +15,14 @@ const toWord = (activeWordIndex) => ([word, playerWord], index) => {
 
 };
 
-const Words = (props) => <div className="words">{zipLeft(props.words, props.playerWords).map(toWord(props.active))}</div>;
+const Words = (props) => {
+    props.playerWords.length = props.words.length;
+    return (
+        <div className="words">
+            {R.zip(props.words, props.playerWords).map(toWord(props.active))}
+        </div>
+    );
+};
 
 Words.propTypes = {
     words: React.PropTypes

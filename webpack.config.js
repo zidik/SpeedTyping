@@ -12,10 +12,7 @@ module.exports = {
             {
                 test: /\.jsx?$/,
                 loader: 'babel',
-                exclude: /(node_modules|bower_components)/,
-                query: {
-                    presets: ['react', 'es2015']
-                }
+                exclude: /(node_modules|bower_components)/
             }
         ]
     },

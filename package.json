@@ -4,8 +4,10 @@
   "description": "speed-typing game",
   "main": "main.js",
   "dependencies": {
+    "babel-plugin-ramda": "^1.0.0",
     "classnames": "^2.2.3",
     "flux": "^2.1.1",
+    "ramda": "^0.21.0",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
     "react-redux": "^4.4.2",

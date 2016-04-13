@@ -1,7 +1,7 @@
 "use strict";
 import React from 'react';
-import Word from "./Word"
-import {zip} from "./../zip";
+import Word from "./Word";
+import R from "ramda";
 
 const compareChars = ([ref,usr]) => {
     if (typeof usr === "undefined") return "";
@@ -11,7 +11,7 @@ const compareChars = ([ref,usr]) => {
 
 class WordContainer extends React.Component {
     render()  {
-        var letterStatuses = zip(this.props.word.split(""),this.props.playerWord.split("")).map(compareChars);
+        var letterStatuses = R.zip(this.props.word.split(""),this.props.playerWord.split("")).map(compareChars);
         return <Word word={this.props.word} status={this.props.status} letterStatuses={letterStatuses}/>
     }
 }
