@@ -18,14 +18,13 @@ const buildLetters = (word, playerWord) => {
     let chars = word.split("");
     let playerChars = (playerWord || "").split("");
     playerChars.length = chars.length;
-    
+
     let letterStatuses = R.zipWith(compareChars, chars, playerChars);
     return R.zip(chars, letterStatuses).map(toLetter)
 };
 
 const mapStateToProps = (state, props) => ({
-    children: buildLetters(state.words[props.index], state.playerWords.concat([state.currentInput])[props.index]),
-    status: props.status
+    children: buildLetters(state.words[props.index], state.playerWords[props.index])
 });
 
 export default connect(mapStateToProps)(Word);

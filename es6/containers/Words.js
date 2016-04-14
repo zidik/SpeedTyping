@@ -8,16 +8,17 @@ import R from "ramda";
 
 const buildWord = (activeWordIndex) => ([word, playerWord], index) => {
     var wordStatus;
-    if(playerWord === undefined) {wordStatus = "inactive"; playerWord =""}
-    else if(activeWordIndex==index) wordStatus = "current";
+    if(activeWordIndex==index) wordStatus = "current";
+    else if(playerWord === undefined) {wordStatus = "inactive";}
     else if(word==playerWord) wordStatus = "correct";
     else wordStatus = "incorrect";
     return <Word status={wordStatus} index={index} key={index} />;
 };
 
 const buildWords = (words, playerWords, active) =>{
-    playerWords.length = words.length;
-    return R.zip(words, playerWords).map(buildWord(active))
+    let _playerWords = playerWords.slice();
+    _playerWords.length = words.length;
+    return R.zip(words, _playerWords).map(buildWord(active)).slice(Math.max (0,active-2))
 };
 
 
@@ -25,8 +26,8 @@ const mapStateToProps = (state) => ({
     children: 
         buildWords(
             state.words,
-            state.playerWords.concat([state.currentInput]),
-            state.playerWords.length
+            state.playerWords,
+            state.playerWords.length-1
         )
 });
 

@@ -5,7 +5,7 @@ import {changeInput} from '../actions'
 
 
 const mapStateToProps = (state) => ({
-    value: state.currentInput
+    value: state.playerWords[state.playerWords.length-1]
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -3,9 +3,8 @@
 import {CHANGE_INPUT} from "../actions"
 
 const initialState ={
-    words: ["random", "words", "are", "here", "saab", "volvo"],
-    currentInput: "",
-    playerWords: [],
+    words: ["random", "words", "are", "here", "saab", "volvo", "random", "words", "are", "here", "saab", "volvo", "random", "words", "are", "here", "saab", "volvo"],
+    playerWords: [""],
     startTime: (new Date()).getTime()
 };
 
@@ -15,18 +14,9 @@ const typingGameReducer = (state = initialState, action) => {
     switch (action.type) {
         case CHANGE_INPUT:
         {
-            //var curInput = this.state.currentInput;
-            let newInput = action.text;
-
-            //Disable deletion
-            //if (newInput.length < curInput.length) newInput = curInput;
-            let wordsInInput = newInput.split(" ");
-            let complete_words = wordsInInput.slice(0, -1);
-            let incomplete_word = wordsInInput[wordsInInput.length-1];
-
+            let wordsInInput= action.text.split(" ");
             return merge(state, {
-                currentInput: incomplete_word,
-                playerWords: state.playerWords.concat(complete_words)
+                playerWords: state.playerWords.slice(0, -1).concat(wordsInInput)
             });
         }
         default:

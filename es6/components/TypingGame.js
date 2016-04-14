@@ -4,12 +4,14 @@ import Statistics from "./../containers/Statistics";
 import InputField from "./../containers/InputField"
 import Words from "./../containers/Words"
 
-const TypingGame = (props)=><div>
+const TypingGame = (props)=>(
+    <div>
         <h2> Typing Game </h2>
         <Words />
         <InputField />
         <Statistics />
-    </div>;
+    </div>
+);
 
 TypingGame.propTypes = {
     //words: React.PropTypes.arrayOf(React.PropTypes.string).isRequired
