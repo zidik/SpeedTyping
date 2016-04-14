@@ -1,17 +1,17 @@
 "use strict";
 import React from 'react';
 
-const WordField = (props) => (
+const InputField = (props) => (
     <input
         className="typing-container"
         value={props.value}
-        onChange={props.onChange}
+        onChange={(e) => props.handleInputChange(e.target.value)}
     />
 );
 
-WordField.propTypes = {
+InputField.propTypes = {
     value: React.PropTypes.string.isRequired,
-    onChange: React.PropTypes.func.isRequired
+    handleInputChange: React.PropTypes.func.isRequired
 };
 
-export default WordField;
+export default InputField;

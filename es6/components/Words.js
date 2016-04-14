@@ -1,7 +1,7 @@
 "use strict";
 import React from 'react';
-import WordContainer from "./WordContainer";
-import R from "ramda";
+import WordContainer from "./../containers/Word";
+
 
 const toWord = (activeWordIndex) => ([word, playerWord], index) => {
     var wordStatus;
@@ -16,22 +16,15 @@ const toWord = (activeWordIndex) => ([word, playerWord], index) => {
 };
 
 const Words = (props) => {
-    props.playerWords.length = props.words.length;
     return (
         <div className="words">
-            {R.zip(props.words, props.playerWords).map(toWord(props.active))}
+            {props.children}
         </div>
     );
 };
 
 Words.propTypes = {
-    words: React.PropTypes
-        .arrayOf(React.PropTypes.string)
-        .isRequired,
-    playerWords: React.PropTypes
-        .arrayOf(React.PropTypes.string)
-        .isRequired,
-    active: React.PropTypes.number.isRequired
+    children: React.PropTypes.node.isRequired
 };
 
 export default Words;
