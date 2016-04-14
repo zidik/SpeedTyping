@@ -1,11 +1,11 @@
 "use strict";
-import InputField from "../components/InputField"
-import {connect} from 'react-redux'
-import {changeInput} from '../actions'
+import InputField from "../components/InputField";
+import {connect} from "react-redux";
+import {changeInput} from "../actions";
 
 
 const mapStateToProps = (state) => ({
-    value: state.playerWords[state.playerWords.length-1]
+    value: state.playerWords[state.playerWords.length - 1]
 });
 
 const mapDispatchToProps = (dispatch) => ({

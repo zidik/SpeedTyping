@@ -1,8 +1,8 @@
 "use strict";
-import React from 'react';
+import React from "react";
 import Statistics from "./../containers/Statistics";
-import InputField from "./../containers/InputField"
-import Words from "./../containers/Words"
+import InputField from "./../containers/InputField";
+import Words from "./../containers/Words";
 
 const TypingGame = (props)=>(
     <div>

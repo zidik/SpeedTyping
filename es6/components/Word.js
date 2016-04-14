@@ -3,7 +3,7 @@ import classNames from "classnames";
 import React from "react";
 
 
-const Word = (props) =>{
+const Word = (props) => {
     var wordClass = classNames({
         'word': true,
         'correct': props.status == "correct",
@@ -11,9 +11,11 @@ const Word = (props) =>{
         'current': props.status == "current"
     });
 
-    return  <span className={wordClass}>
-                {props.children}
-            </span>;
+    return (
+        <span className={wordClass}>
+            {props.children}
+        </span>
+    );
 };
 
 Word.propTypes = {

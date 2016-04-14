@@ -1,16 +1,15 @@
 "use strict";
-import Word from "../components/Word"
+import Word from "../components/Word";
 import Letter from "../components/Letter";
-
-import React from 'react';
+import React from "react";
 import R from "ramda";
-import {connect} from 'react-redux'
+import {connect} from "react-redux";
 
-const toLetter = ([letter, status], index) => <Letter letter={letter} status={status} key={index} />;
+const toLetter = ([letter, status], index) => <Letter letter={letter} status={status} key={index}/>;
 
 const compareChars = (ref, usr) => {
     if (typeof usr === "undefined") return "";
-    if (ref==usr) return "correct";
+    if (ref == usr) return "correct";
     return "incorrect";
 };
 

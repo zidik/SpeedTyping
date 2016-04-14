@@ -1,19 +1,5 @@
 "use strict";
-import React from 'react';
-import WordContainer from "./../containers/Word";
-
-
-const toWord = (activeWordIndex) => ([word, playerWord], index) => {
-    var wordStatus;
-    if(playerWord === undefined) {wordStatus = "inactive"; playerWord =""}
-    else if(activeWordIndex==index) wordStatus = "current";
-    else if(word==playerWord) wordStatus = "correct";
-    else wordStatus = "incorrect";
-
-
-    return <WordContainer status={wordStatus} word={word} playerWord={playerWord} key={index} />;
-
-};
+import React from "react";
 
 const Words = (props) => {
     return (
