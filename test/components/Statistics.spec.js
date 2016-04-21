@@ -1,15 +1,15 @@
 'use strict';
 
-import React from 'react';
-import TestUtils from 'react-addons-test-utils';
-import Statistics from '../../es6/components/Statistics';
+import React from "react";
+import TestUtils from "react-addons-test-utils";
+import Statistics from "../../es6/components/Statistics";
 
 describe('Statistics', () => {
 
     var buildStats = ((accuracy, wordsPerMinute) => {
         let renderer = TestUtils.createRenderer();
         renderer.render(
-            <Statistics accuracy={accuracy} wordsPerMinute={wordsPerMinute} />
+            <Statistics accuracy={accuracy} wordsPerMinute={wordsPerMinute}/>
         );
         return renderer.getRenderOutput();
     });

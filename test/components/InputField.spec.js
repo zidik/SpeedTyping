@@ -1,8 +1,8 @@
 'use strict';
 
-import React from 'react';
-import TestUtils from 'react-addons-test-utils';
-import Typing from '../../es6/components/InputField';
+import React from "react";
+import TestUtils from "react-addons-test-utils";
+import Typing from "../../es6/components/InputField";
 
 describe('Typing', () => {
 
@@ -15,7 +15,7 @@ describe('Typing', () => {
     var buildTypingContainer = ((handleChange, value) => {
         return TestUtils.renderIntoDocument(
             <Wrapper>
-                <Typing handleChange={handleChange} value={value} />
+                <Typing handleChange={handleChange} value={value}/>
             </Wrapper>
         );
     });

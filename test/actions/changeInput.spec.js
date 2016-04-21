@@ -1,5 +1,5 @@
 'use strict';
-import { changeInput } from '../../es6/actions'
+import {changeInput} from "../../es6/actions";
 
 describe('changeInput', () => {
     it('should create CHANGE_INPUT action', () => {

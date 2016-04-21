@@ -3,7 +3,6 @@
     "browser": true,
     "es6": true
   },
-
   "parserOptions": {
     "ecmaVersion": 6,
     "sourceType": "module",
@@ -11,14 +10,11 @@
       "jsx": true
     }
   },
-
   "plugins": [
     "react"
   ],
-
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended"
   ]
-
 }

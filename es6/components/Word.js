@@ -21,7 +21,7 @@ const Word = (props) => {
         let letterStatuses = R.zipWith(compareChars, chars, playerChars);
         return R.zip(chars, letterStatuses).map(toLetter)
     };
-    
+
     var wordClass = classNames({
         'word': true,
         'correct': props.status == "correct",

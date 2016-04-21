@@ -1,6 +1,5 @@
 "use strict";
 
-import { combineReducers } from 'redux'
 import {CHANGE_INPUT} from "../actions";
 
 const initialState = {

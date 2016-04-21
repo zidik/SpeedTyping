@@ -70,7 +70,7 @@ ul {
     height: 9ex;
     overflow: hidden;
     line-height: 3ex;
-    font-family: "Fira Mono","DejaVu Sans Mono","Bitstream Vera Mono","Consolas","Lucida Console",monospace;
+    font-family: "Fira Mono", "DejaVu Sans Mono", "Bitstream Vera Mono", "Consolas", "Lucida Console", monospace;
     font-size: 160%;
     text-align: center;
     border: 0;
@@ -81,7 +81,7 @@ ul {
     margin-right: .1em;
 }
 
-.word, .letter{
+.word, .letter {
     border-radius: 5px;
 }
 
@@ -97,8 +97,7 @@ ul {
     background: #fae882;
 }
 
-
-.typing-container{
+.typing-container {
     display: block;
     width: 100%;
     margin: auto;
@@ -107,7 +106,7 @@ ul {
     font-size: 160%;
     border: 1px solid black;
     background: transparent;
-    font-family: "Open Sans","DejaVu Sans","Bitstream Vera Sans","Arial",sans-serif;
+    font-family: "Open Sans", "DejaVu Sans", "Bitstream Vera Sans", "Arial", sans-serif;
 }
 
 .StatDiv {

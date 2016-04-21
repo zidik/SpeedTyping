@@ -1,8 +1,8 @@
 'use strict';
 
-import React from 'react';
-import TestUtils from 'react-addons-test-utils';
-import Word from '../../es6/components/Word';
+import React from "react";
+import TestUtils from "react-addons-test-utils";
+import Word from "../../es6/components/Word";
 
 describe('Word', () => {
     const renderWord = (word, playerWord, status) => {
@@ -14,7 +14,7 @@ describe('Word', () => {
     };
 
     it('should have classname "word"', () => {
-        let renderedWord = renderWord ("some_word", "some_input", "correct");
+        let renderedWord = renderWord("some_word", "some_input", "correct");
         expect(renderedWord.props.className).to.contain("word")
     });
 
@@ -23,7 +23,7 @@ describe('Word', () => {
         let playerWord = "ac";
         let status = "current";
 
-        let renderedWord = renderWord (word, playerWord, status);
+        let renderedWord = renderWord(word, playerWord, status);
         let renderedLetters = renderedWord.props.children;
 
         let correctLetter = renderedLetters[0];
@@ -41,7 +41,7 @@ describe('Word', () => {
         let playerWord = "ac";
         let status = "current";
 
-        let renderedWord = renderWord (word, playerWord, status);
+        let renderedWord = renderWord(word, playerWord, status);
         let renderedLetters = renderedWord.props.children;
 
         let correctLetter = renderedLetters[0];
@@ -57,7 +57,7 @@ describe('Word', () => {
     let statuses = ["correct", "incorrect", "current"];
     statuses.forEach(function (status) {
         describe('with status ' + status, () => {
-            let renderedWord = renderWord ("some_word", "some_input", status);
+            let renderedWord = renderWord("some_word", "some_input", status);
             it('should add class "' + status + '"', () => {
                 expect(renderedWord.props.className).to.contain("word")
                 expect(renderedWord.props.className).to.contain(status);

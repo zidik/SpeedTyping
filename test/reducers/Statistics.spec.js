@@ -1,4 +1,4 @@
-import { calcAccuracy, calcWordsPerMinute } from '../../es6/reducers/Statistics'
+import {calcAccuracy, calcWordsPerMinute} from "../../es6/reducers/Statistics";
 
 describe('Statistics', () => {
     describe('calcAccuracy function', () => {
