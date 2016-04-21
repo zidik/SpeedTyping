@@ -59,7 +59,7 @@ describe('Word', () => {
         describe('with status ' + status, () => {
             let renderedWord = renderWord("some_word", "some_input", status);
             it('should add class "' + status + '"', () => {
-                expect(renderedWord.props.className).to.contain("word")
+                expect(renderedWord.props.className).to.contain("word");
                 expect(renderedWord.props.className).to.contain(status);
             })
         });

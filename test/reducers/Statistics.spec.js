@@ -27,7 +27,7 @@ describe('Statistics', () => {
             expect(calcWordsPerMinute({playerWords: ["a", ""], startTime: one_min_ago})).to.eq(1);
             expect(calcWordsPerMinute({playerWords: ["a", "b", ""], startTime: one_min_ago})).to.eq(2);
             expect(calcWordsPerMinute({playerWords: ["b", "b", "c", ""], startTime: one_min_ago})).to.eq(3);
-            let one_sec_ago = Date.now() - 1 * 1000;
+            let one_sec_ago = Date.now() - 1000;
             expect(calcWordsPerMinute({playerWords: ["a", ""], startTime: one_sec_ago})).to.eq(60);
             expect(calcWordsPerMinute({playerWords: ["a", "b", ""], startTime: one_sec_ago})).to.eq(120);
             expect(calcWordsPerMinute({playerWords: ["b", "b", "c", ""], startTime: one_sec_ago})).to.eq(180)
