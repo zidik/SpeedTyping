@@ -9,7 +9,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    handleInputChange: (input) => dispatch(changeInput(input))
+    handleChange: (input) => dispatch(changeInput(input))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(InputField);

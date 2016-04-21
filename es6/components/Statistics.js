@@ -1,15 +1,16 @@
-"use strict";
 import React from "react";
 
 const TypingStatistics = (props) =>
     <div>
-        Words per minute: {props.wpm} <br />
-        Accuracy: {props.acc}%
+        <span>Words per minute: </span>
+        <span>{props.wordsPerMinute}</span>
+        <span><br />Accuracy: </span>
+        <span>{props.accuracy}%</span>
     </div>;
 
 TypingStatistics.propTypes = {
-    wpm: React.PropTypes.string.isRequired,
-    acc: React.PropTypes.string.isRequired
+    wordsPerMinute: React.PropTypes.string.isRequired,
+    accuracy: React.PropTypes.string.isRequired
 };
 
 export default TypingStatistics;

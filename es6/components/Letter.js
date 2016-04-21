@@ -1,4 +1,3 @@
-"use strict";
 import React from "react";
 import classNames from "classnames";
 
@@ -11,10 +10,9 @@ const Letter = (props) => {
     return <span className={letterClass}>{props.letter}</span>;
 };
 
-
 Letter.propTypes = {
     letter: React.PropTypes.string.isRequired,
-    status: React.PropTypes.string
+    status: React.PropTypes.string.isRequired
 };
 
 export default Letter;

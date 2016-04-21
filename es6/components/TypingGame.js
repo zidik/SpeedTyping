@@ -1,4 +1,3 @@
-"use strict";
 import React from "react";
 import Statistics from "./../containers/Statistics";
 import InputField from "./../containers/InputField";
@@ -13,8 +12,6 @@ const TypingGame = (props)=>(
     </div>
 );
 
-TypingGame.propTypes = {
-    //words: React.PropTypes.arrayOf(React.PropTypes.string).isRequired
-};
+TypingGame.propTypes = {};
 
 export default TypingGame;
