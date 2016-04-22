@@ -2,9 +2,9 @@
 
 import React from "react";
 import TestUtils from "react-addons-test-utils";
-import Typing from "../../es6/components/InputField";
+import InputField from "../../es6/components/InputField";
 
-describe('Typing', () => {
+describe('InputField', () => {
 
     class Wrapper extends React.Component {
         render() {
@@ -12,28 +12,33 @@ describe('Typing', () => {
         }
     }
 
-    var buildTypingContainer = ((handleChange, value) => {
+    var buildInputField = ((handleChange, value, disabled) => {
         return TestUtils.renderIntoDocument(
             <Wrapper>
-                <Typing handleChange={handleChange} value={value}/>
+                <InputField
+                    handleChange={handleChange}
+                    value={value}
+                    disabled={disabled}
+                />
             </Wrapper>
         );
     });
 
     it('should render the current value', () => {
         let handleChange = sinon.stub;
-        let typing = buildTypingContainer(handleChange, "hello");
-        let textInput = TestUtils.findRenderedDOMComponentWithTag(typing, 'input');
+        let InputField = buildInputField(handleChange, "hello", false);
+        let textInput = TestUtils.findRenderedDOMComponentWithTag(InputField, 'input');
         expect(textInput.value).to.eq("hello");
     });
 
     it('should call handleChange prop on change (with current value)', () => {
         let onUserInput = sinon.stub();
-        let typing = buildTypingContainer(onUserInput, "hello");
-        let textInput = TestUtils.findRenderedDOMComponentWithTag(typing, 'input');
+        let InputField = buildInputField(onUserInput, "hello", false);
+        let textInput = TestUtils.findRenderedDOMComponentWithTag(InputField, 'input');
 
         TestUtils.Simulate.change(textInput);
 
         expect(onUserInput).to.have.been.calledWith("hello");
     });
+
 });

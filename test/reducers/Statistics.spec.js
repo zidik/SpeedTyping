@@ -23,6 +23,7 @@ describe('Statistics', () => {
 
         it('should calculate words per minute correctly', () => {
             let one_min_ago = Date.now() - 60 * 1000;
+            expect(calcWordsPerMinute({playerWords: [""], startTime: Date.now()})).to.eq(0);
             expect(calcWordsPerMinute({playerWords: [""], startTime: one_min_ago})).to.eq(0);
             expect(calcWordsPerMinute({playerWords: ["a", ""], startTime: one_min_ago})).to.eq(1);
             expect(calcWordsPerMinute({playerWords: ["a", "b", ""], startTime: one_min_ago})).to.eq(2);

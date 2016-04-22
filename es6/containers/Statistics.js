@@ -4,8 +4,9 @@ import Statistics from "./../components/Statistics";
 import {calcAccuracy, calcWordsPerMinute} from "./../reducers/Statistics";
 
 const mapStateToProps = (state) => ({
-    wordsPerMinute: calcWordsPerMinute({startTime: state.startTime, playerWords: state.playerWords}).toFixed(2),
-    accuracy: calcAccuracy({words: state.words, playerWords: state.playerWords}).toFixed(0)
+    wordsPerMinute: calcWordsPerMinute(state).toFixed(2),
+    accuracy: calcAccuracy(state).toFixed(0),
+    time: ((state.currentTime - state.startTime) / 1000).toFixed(1)
 });
 
 export default connect(mapStateToProps)(Statistics);
