@@ -10,9 +10,9 @@ describe('Statistics', () => {
         let renderer = TestUtils.createRenderer();
         renderer.render(
             <Statistics
-                accuracy = {accuracy}
-                wordsPerMinute = {wordsPerMinute}
-                time = {time}
+                accuracy={accuracy}
+                wordsPerMinute={wordsPerMinute}
+                time={time}
             />
         );
         return renderer.getRenderOutput();

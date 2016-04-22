@@ -25,7 +25,7 @@ describe('speedTyperReducer', () => {
     describe('action ' + START, () => {
         it('should change hasStarted to true', () => {
             const result = speedTyperReducer(
-                {hasStarted:false},
+                {hasStarted: false},
                 {type: START}
             );
             expect(result.hasStarted).to.eq(true);
@@ -34,7 +34,7 @@ describe('speedTyperReducer', () => {
         it('should initialize times with current timestamp', () => {
             let clock = sinon.useFakeTimers(new Date(2011, 9, 1).getTime());
             const result = speedTyperReducer(
-                {startTime:0, currentTime:0},
+                {startTime: 0, currentTime: 0},
                 {type: START}
             );
             expect(result.startTime).to.eq(Date.now());
@@ -44,7 +44,7 @@ describe('speedTyperReducer', () => {
 
         it('should change playerWords to [""]', () => {
             const result = speedTyperReducer(
-                {playerWords:["abc","xyz"]},
+                {playerWords: ["abc", "xyz"]},
                 {type: START}
             );
             expect(result.playerWords).to.deep.eq([""]);
@@ -52,27 +52,27 @@ describe('speedTyperReducer', () => {
 
         it('should change words to ones that are provided by action', () => {
             const result = speedTyperReducer(
-                {words:["xyz","xyz","xyz"]},
+                {words: ["xyz", "xyz", "xyz"]},
                 {
                     type: START,
-                    words: ["abc","dfg"]
+                    words: ["abc", "dfg"]
                 }
             );
-            expect(result.words).to.deep.eq(["abc","dfg"]);
+            expect(result.words).to.deep.eq(["abc", "dfg"]);
         });
 
     });
     describe('action ' + STOP, () => {
-        
+
         it('should change hasStarted to false and change high scores when they are lower than previous', () => {
             const result = speedTyperReducer(
                 {
-                    hasStarted:true,
-                    highest_wordsPerMinute:0,
-                    highest_accuracy:0,
-                    words:["A"],
-                    playerWords:["A",""],
-                    startTime:Date.now()-10
+                    hasStarted: true,
+                    highest_wordsPerMinute: 0,
+                    highest_accuracy: 0,
+                    words: ["A"],
+                    playerWords: ["A", ""],
+                    startTime: Date.now() - 10
                 },
                 {type: STOP}
             );
@@ -80,14 +80,14 @@ describe('speedTyperReducer', () => {
             expect(result.highest_accuracy).to.eq(100);
             expect(result.highest_wordsPerMinute).to.be.gt(0);
         });
-        
+
     });
-    
+
     describe('action ' + TICK, () => {
         it('should set currentTime to current timestamp', () => {
             let clock = sinon.useFakeTimers(new Date(2011, 9, 1).getTime());
             const result = speedTyperReducer(
-                {currentTime:0},
+                {currentTime: 0},
                 {type: TICK}
             );
             expect(result.currentTime).to.eq(Date.now());

@@ -2,8 +2,8 @@ import React from "react";
 import Statistics from "./../containers/Statistics";
 import InputField from "./../containers/InputField";
 import Words from "./../containers/Words";
-import StartStopButton from "./../containers/StartStopButton"
-import HighScore from "./../containers/HighScore"
+import StartStopButton from "./../containers/StartStopButton";
+import HighScore from "./../containers/HighScore";
 
 const TypingGame = (props)=>(
     <div>

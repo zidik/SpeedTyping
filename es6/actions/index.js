@@ -1,4 +1,4 @@
-import fetch from 'isomorphic-fetch'
+import fetch from "isomorphic-fetch";
 
 export const CHANGE_INPUT = 'CHANGE_INPUT';
 
@@ -10,14 +10,14 @@ export const REQUEST_WORDS = 'REQUEST_WORDS';
 export const RECEIVE_WORDS = 'RECEIVE_WORDS';
 
 export function changeInput(text) {
-    return{
+    return {
         type: CHANGE_INPUT,
         text
     }
 }
 
 let interval;
-export function start (words) {
+export function start(words) {
     return (dispatch) => {
         // This transitions state to Running
         dispatch({
@@ -32,7 +32,7 @@ export function start (words) {
     }
 }
 
-export function stop () {
+export function stop() {
     //Stop the clock
     clearInterval(interval);
     return {type: STOP}
@@ -44,7 +44,7 @@ function requestWords() {
 }
 
 
-function receiveWords (json) {
+function receiveWords(json) {
     return {
         type: RECEIVE_WORDS,
         words: json.data.children.map(child => child.data)

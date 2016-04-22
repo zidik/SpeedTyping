@@ -10,8 +10,8 @@ describe('HighScore', () => {
         let renderer = TestUtils.createRenderer();
         renderer.render(
             <HighScore
-                accuracy = {accuracy}
-                wordsPerMinute = {wordsPerMinute}
+                accuracy={accuracy}
+                wordsPerMinute={wordsPerMinute}
             />
         );
         return renderer.getRenderOutput();

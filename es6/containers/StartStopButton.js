@@ -10,7 +10,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     startClick: () => dispatch(fetchWords(start)),
-    stopClick : () => dispatch(stop())
+    stopClick: () => dispatch(stop())
 });
 
 function mergeProps(stateProps, dispatchProps, ownProps) {

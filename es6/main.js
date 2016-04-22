@@ -2,8 +2,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import {Provider} from "react-redux";
-import { createStore, applyMiddleware } from 'redux'
-import thunkMiddleware from 'redux-thunk'
+import {createStore, applyMiddleware} from "redux";
+import thunkMiddleware from "redux-thunk";
 import typingGame from "./reducers";
 import TypingGame from "./components/TypingGame";
 
