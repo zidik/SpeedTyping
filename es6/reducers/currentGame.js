@@ -13,7 +13,7 @@ const initialState = {
     highest_accuracy: 0
 };
 
-export default function currentGame(state = initialState, action){
+export default function currentGame(state = initialState, action) {
     switch (action.type) {
         case act.INPUT_CHANGE:
             return {

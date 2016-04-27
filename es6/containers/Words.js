@@ -3,7 +3,7 @@
 import Words from "../components/Words";
 import {connect} from "react-redux";
 
-function mapStateToProps(state){
+function mapStateToProps(state) {
     const game = state.currentGame;
     return {
         words: game.words,

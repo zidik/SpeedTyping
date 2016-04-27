@@ -59,7 +59,7 @@ export function fetchWords(jsonConsumer) {
         return fetch('http://localhost:3000/words.json')
             .then(response => response.json())
             .then(
-                (words) =>{
+                (words) => {
                     dispatch(receiveWords(words));
                     dispatch(reset);
                     dispatch(start());
