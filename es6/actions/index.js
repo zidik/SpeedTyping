@@ -1,29 +1,28 @@
 import fetch from "isomorphic-fetch";
 
-export const CHANGE_INPUT = 'CHANGE_INPUT';
+export const INPUT_CHANGE = 'INPUT_CHANGE';
 
-export const START = 'START';
-export const STOP = 'STOP';
+export const GAME_START = 'GAME_START';
+export const GAME_STOP = 'GAME_STOP';
+export const GAME_RESET = 'GAME_RESET';
 export const TICK = 'TICK';
 
-export const REQUEST_WORDS = 'REQUEST_WORDS';
-export const RECEIVE_WORDS = 'RECEIVE_WORDS';
+export const WORDS_FETCH_REQUEST = 'WORDS_FETCH_REQUEST';
+export const WORDS_FETCH_SUCCESS = 'WORDS_FETCH_SUCCESS';
 
 export function changeInput(text) {
     return {
-        type: CHANGE_INPUT,
+        type: INPUT_CHANGE,
         text
     }
 }
 
 let interval;
-export function start(words) {
+
+export function start() {
     return (dispatch) => {
         // This transitions state to Running
-        dispatch({
-            type: START,
-            words
-        });
+        dispatch({type: GAME_START});
         // This keeps the clock ticking
         interval = setInterval(
             () => dispatch({type: TICK}),
@@ -35,19 +34,21 @@ export function start(words) {
 export function stop() {
     //Stop the clock
     clearInterval(interval);
-    return {type: STOP}
+    return {type: GAME_STOP}
 }
 
+export function reset() {
+    return {type: GAME_RESET}
+}
 
 function requestWords() {
-    return {type: REQUEST_WORDS}
+    return {type: WORDS_FETCH_REQUEST}
 }
 
-
-function receiveWords(json) {
+function receiveWords(words) {
     return {
-        type: RECEIVE_WORDS,
-        words: json.data.children.map(child => child.data)
+        type: WORDS_FETCH_SUCCESS,
+        words
     }
 }
 
@@ -57,8 +58,12 @@ export function fetchWords(jsonConsumer) {
 
         return fetch('http://localhost:3000/words.json')
             .then(response => response.json())
-            .then(json =>
-                dispatch(jsonConsumer(json))
+            .then(
+                (words) =>{
+                    dispatch(receiveWords(words));
+                    dispatch(reset);
+                    dispatch(start());
+                }
             );
         // One day, catch error here...
     }

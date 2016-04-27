@@ -7,12 +7,14 @@ const Button = (props) => (
         type="button"
         value={props.value}
         onClick={(e) => props.click()}
+        disabled={props.disabled}
     />
 );
 
 Button.propTypes = {
     value: React.PropTypes.string.isRequired,
-    click: React.PropTypes.func.isRequired
+    click: React.PropTypes.func.isRequired,
+    disabled: React.PropTypes.bool.isRequired
 };
 
 export default Button;

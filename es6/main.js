@@ -7,7 +7,10 @@ import thunkMiddleware from "redux-thunk";
 import typingGame from "./reducers";
 import TypingGame from "./components/TypingGame";
 
-const store = createStore(typingGame, applyMiddleware(thunkMiddleware));
+const store = createStore(
+    typingGame,
+    applyMiddleware(thunkMiddleware)
+);
 
 ReactDOM.render(
     <Provider store={store}>

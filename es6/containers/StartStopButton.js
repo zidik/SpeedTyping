@@ -5,7 +5,8 @@ import {connect} from "react-redux";
 import {fetchWords, start, stop} from "../actions";
 
 const mapStateToProps = (state) => ({
-    hasStarted: state.hasStarted
+    gameStarted: state.currentGame.gameStarted,
+    disabled: state.fetching.isFetchingWords
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -15,8 +16,9 @@ const mapDispatchToProps = (dispatch) => ({
 
 function mergeProps(stateProps, dispatchProps, ownProps) {
     return Object.assign({}, ownProps, {
-        value: stateProps.hasStarted ? "Stop" : "Start",
-        click: stateProps.hasStarted ? dispatchProps.stopClick : dispatchProps.startClick
+        value: stateProps.gameStarted ? "Stop" : "Start",
+        click: stateProps.gameStarted ? dispatchProps.stopClick : dispatchProps.startClick,
+        disabled: stateProps.disabled
     })
 }
 

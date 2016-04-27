@@ -3,10 +3,13 @@
 import Words from "../components/Words";
 import {connect} from "react-redux";
 
-const mapStateToProps = (state) => ({
-    words: state.words,
-    playerWords: state.playerWords,
-    active: state.playerWords.length - 1
-});
+function mapStateToProps(state){
+    const game = state.currentGame;
+    return {
+        words: game.words,
+        playerWords: game.playerWords,
+        active: game.playerWords.length - 1
+    }
+}
 
 export default connect(mapStateToProps)(Words);

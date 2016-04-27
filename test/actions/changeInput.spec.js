@@ -2,9 +2,9 @@
 import {changeInput} from "../../es6/actions";
 
 describe('changeInput', () => {
-    it('should create CHANGE_INPUT action', () => {
+    it('should create INPUT_CHANGE action', () => {
         expect(changeInput('Use Redux')).to.deep.eq({
-            type: 'CHANGE_INPUT',
+            type: 'INPUT_CHANGE',
             text: "Use Redux"
         })
     })

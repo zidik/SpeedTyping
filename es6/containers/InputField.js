@@ -5,8 +5,8 @@ import {changeInput} from "../actions";
 
 
 const mapStateToProps = (state) => ({
-    value: state.playerWords[state.playerWords.length - 1],
-    disabled: !state.hasStarted
+    value: state.currentGame.playerWords[state.currentGame.playerWords.length - 1],
+    disabled: !state.currentGame.gameStarted
 });
 
 const mapDispatchToProps = (dispatch) => ({
