@@ -53,7 +53,7 @@ export default function currentGame(state = initialState, action) {
                 ...state,
                 startTime: undefined,
                 playerWords: [""],
-                words: [""]
+                words: []
             };
 
         case act.TICK:

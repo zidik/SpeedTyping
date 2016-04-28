@@ -1,7 +1,7 @@
 import React from "react";
 
 const Statistics = (props) =>
-    <div>
+    <div className="statistics">
         <h3>Statistics:</h3>
         <span>Words per minute: </span>
         <span>{props.wordsPerMinute}</span>

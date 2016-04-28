@@ -87,12 +87,12 @@ describe('currentGame', () => {
             expect(result.playerWords).to.deep.eq([""]);
         });
 
-        it('should change words to [""]', () => {
+        it('should change words to []', () => {
             const result = currentGame(
                 {words: ["abc", "xyz"]},
                 {type: GAME_RESET}
             );
-            expect(result.words).to.deep.eq([""]);
+            expect(result.words).to.deep.eq([]);
         });
     });
 
@@ -109,7 +109,7 @@ describe('currentGame', () => {
         });
 
     });
-    
+
     describe('action ' + TICK, () => {
         it('should set currentTime to current timestamp', () => {
             let clock = sinon.useFakeTimers(new Date(2011, 9, 1).getTime());

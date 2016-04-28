@@ -14,7 +14,8 @@
     "react-dom": "^15.0.1",
     "react-redux": "^4.4.5",
     "redux": "^3.5.1",
-    "redux-thunk": "^2.0.1"
+    "redux-thunk": "^2.0.1",
+    "websocket": "^1.0.22"
   },
   "devDependencies": {
     "babel-core": "^6.7.7",
@@ -36,8 +37,7 @@
   "scripts": {
     "test": "mocha",
     "test-debug": "mocha --debug-brk",
-    "build": "webpack",
-    "start": "webpack-dev-server --inline"
+    "start": "node server.js"
   },
   "author": "Mark Laane",
   "license": "MIT",

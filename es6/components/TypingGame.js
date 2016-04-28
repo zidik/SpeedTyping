@@ -1,19 +1,18 @@
+"use strict";
+
 import React from "react";
-import Statistics from "./../containers/Statistics";
-import InputField from "./../containers/InputField";
-import Words from "./../containers/Words";
-import StartStopButton from "./../containers/StartStopButton";
-import HighScore from "./../containers/HighScore";
+
+import TypingGameInstance from "./TypingGameInstance";
 
 const TypingGame = (props)=>(
-    <div>
+    <div className="typingGame">
         <h2> Typing Game </h2>
-        <Words />
-        <InputField />
-        <StartStopButton />
-        <Statistics />
-        <HighScore />
+        <div className="gameInstances">
+            <TypingGameInstance isLocal={true}  />
+            <TypingGameInstance isLocal={false} />
+        </div>
     </div>
+
 );
 
 TypingGame.propTypes = {};

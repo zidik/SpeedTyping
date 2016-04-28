@@ -55,13 +55,12 @@ function receiveWords(words) {
 export function fetchWords(jsonConsumer) {
     return (dispatch) => {
         dispatch(requestWords());
-
+        dispatch(reset());
         return fetch('http://localhost:3000/words.json')
             .then(response => response.json())
             .then(
                 (words) => {
                     dispatch(receiveWords(words));
-                    dispatch(reset);
                     dispatch(start());
                 }
             );

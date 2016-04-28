@@ -3,10 +3,12 @@
 import {combineReducers} from "redux";
 import currentGame from "./currentGame";
 import fetching from "./fetching";
+import websocket from "./websocket"
 
 export default combineReducers({
     fetching,
-    currentGame
+    currentGame,
+    websocket
 })
 
 export function calcTimeElapsed(game) {
