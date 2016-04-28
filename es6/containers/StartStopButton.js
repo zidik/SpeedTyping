@@ -5,7 +5,7 @@ import {connect} from "react-redux";
 import {fetchWords, start, stop} from "../actions";
 
 const mapStateToProps = (state) => ({
-    gameStarted: state.currentGame.gameStarted,
+    gameStarted: state.localGame.gameStarted,
     disabled: state.fetching.isFetchingWords
 });
 

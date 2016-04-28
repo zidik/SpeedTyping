@@ -1,5 +1,4 @@
 import * as act from "../actions";
-import {calcAccuracy, calcWordsPerMinute} from "./Statistics";
 
 const initialState = {
     isFetchingWords: false,
@@ -8,12 +7,14 @@ const initialState = {
     currentTime: undefined,
     words: [],
     playerWords: [""],
-
-    highest_wordsPerMinute: 0,
-    highest_accuracy: 0
+    
+    highScore: {
+        wordsPerMinute: 0,
+        accuracy: 0
+    }
 };
 
-export default function currentGame(state = initialState, action) {
+export default function localGame(state = initialState, action) {
     switch (action.type) {
         case act.INPUT_CHANGE:
             return {
@@ -31,22 +32,28 @@ export default function currentGame(state = initialState, action) {
             return {
                 ...state,
                 gameStarted: true,
-                startTime: Date.now(),
-                currentTime: Date.now()
+                startTime: action.startTime,
+                currentTime: action.startTime
             };
 
         case act.GAME_STOP:
             return {
                 ...state,
                 gameStarted: false,
-                highest_wordsPerMinute: Math.max(
-                    state.highest_wordsPerMinute,
-                    calcWordsPerMinute(state)
-                ),
-                highest_accuracy: Math.max(
-                    state.highest_accuracy,
-                    calcAccuracy(state)
-                )
+
+                //Update wordsPerMinute and accuracy
+                highScore: {
+                    ...state.highScore,
+                    wordsPerMinute: Math.max(
+                        state.highScore.wordsPerMinute,
+                        action.score.wordsPerMinute
+                    ),
+                    accuracy: Math.max(
+                        state.highScore.accuracy,
+                        action.score.accuracy
+                    )
+                }
+
             };
         case act.GAME_RESET:
             return {
@@ -61,7 +68,6 @@ export default function currentGame(state = initialState, action) {
                 ...state,
                 currentTime: Date.now()
             };
-
 
         default:
             return state

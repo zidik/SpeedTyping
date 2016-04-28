@@ -3,11 +3,14 @@ import InputField from "../components/InputField";
 import {connect} from "react-redux";
 import {changeInput} from "../actions";
 
+function mapStateToProps(state, props) {
+    const game = state.localGame;
 
-const mapStateToProps = (state) => ({
-    value: state.currentGame.playerWords[state.currentGame.playerWords.length - 1],
-    disabled: !state.currentGame.gameStarted
-});
+    return {
+        value: game.playerWords[game.playerWords.length - 1],
+        disabled: !game.gameStarted
+    }
+}
 
 const mapDispatchToProps = (dispatch) => ({
     handleChange: (input) => dispatch(changeInput(input))

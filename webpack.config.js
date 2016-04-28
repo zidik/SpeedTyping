@@ -6,7 +6,7 @@ var host = 'localhost';
 
 module.exports = {
     entry: [
-        'webpack-dev-server/client?http://${host}:${port}',
+        `webpack-dev-server/client?http://${host}:${port}`,
         './es6/main.js'
     ],
     output: {

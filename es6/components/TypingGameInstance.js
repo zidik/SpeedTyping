@@ -8,11 +8,11 @@ import HighScore from "./../containers/HighScore";
 const TypingGame = (props)=>(
     <div className="gameInstance">
             <h3> {props.isLocal?"Local":"Remote"} </h3>
-            <Words />
+            <Words isLocal={props.isLocal}/>
             {props.isLocal?<InputField />:""}
             {props.isLocal?<StartStopButton />:""}
-            <Statistics />
-            <HighScore />
+            <Statistics isLocal={props.isLocal}/>
+            <HighScore isLocal={props.isLocal}/>
     </div>
 
 );

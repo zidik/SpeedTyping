@@ -1,13 +1,15 @@
 "use strict";
 
 import {combineReducers} from "redux";
-import currentGame from "./currentGame";
+import localGame from "./localGame";
+import remoteGame from "./remoteGame";
 import fetching from "./fetching";
 import websocket from "./websocket"
 
 export default combineReducers({
     fetching,
-    currentGame,
+    localGame,
+    remoteGame,
     websocket
 })
 

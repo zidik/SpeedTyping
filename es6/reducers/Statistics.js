@@ -7,8 +7,8 @@ export const calcAccuracy = ({words, playerWords}) => {
     return correctWords / completeWords.length * 100;
 };
 
-export const calcWordsPerMinute = ({startTime, playerWords}) => {
-    let timeDelta = Date.now() - startTime;
+export const calcWordsPerMinute = ({startTime, currentTime, playerWords}) => {
+    let timeDelta = currentTime - startTime;
     let minutes = (timeDelta / 1000 / 60);
     if (minutes == 0) return 0;
     return (playerWords.length - 1) / minutes;

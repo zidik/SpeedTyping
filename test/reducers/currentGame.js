@@ -1,5 +1,5 @@
 "use strict";
-import currentGame from "../../es6/reducers/currentGame";
+import localGame from "../../es6/reducers/localGame";
 import {
     INPUT_CHANGE,
     GAME_START,
@@ -13,7 +13,7 @@ import {
 describe('currentGame', () => {
     describe('action ' + INPUT_CHANGE, () => {
         it('should change current playerWord', () => {
-            const result = currentGame({playerWords: ["previous", ""]}, {
+            const result = localGame({playerWords: ["previous", ""]}, {
                 type: INPUT_CHANGE,
                 text: "Skyrim"
             });
@@ -21,7 +21,7 @@ describe('currentGame', () => {
         });
 
         it('should advance to next word when input with space is given', () => {
-            const result = currentGame({playerWords: [""]}, {
+            const result = localGame({playerWords: [""]}, {
                 type: INPUT_CHANGE,
                 text: "Skyrim "
             });
@@ -31,28 +31,27 @@ describe('currentGame', () => {
 
     describe('action ' + GAME_START, () => {
         it('should change gameStarted to true', () => {
-            const result = currentGame(
+            const result = localGame(
                 {gameStarted: false},
                 {type: GAME_START}
             );
             expect(result.gameStarted).to.eq(true);
         });
 
-        it('should initialize times with current timestamp', () => {
-            let clock = sinon.useFakeTimers(new Date(2011, 9, 1).getTime());
-            const result = currentGame(
+        it('should initialize times with timestamp provided by action', () => {
+            const result = localGame(
                 {startTime: 0, currentTime: 0},
-                {type: GAME_START}
+                {type: GAME_START,
+                startTime: 1231513}
             );
-            expect(result.startTime).to.eq(Date.now());
-            expect(result.currentTime).to.eq(Date.now());
-            clock.restore();
+            expect(result.startTime).to.eq(1231513);
+            expect(result.currentTime).to.eq(1231513);
         });
     });
     describe('action ' + GAME_STOP, () => {
 
         it('should change gameStarted to false and change high scores when they are lower than previous', () => {
-            const result = currentGame(
+            const result = localGame(
                 {
                     gameStarted: true,
                     highest_wordsPerMinute: 0,
@@ -71,7 +70,7 @@ describe('currentGame', () => {
     });
     describe('action ' + GAME_RESET, () => {
         it('should initialize startTime with undefined', () => {
-            const result = currentGame(
+            const result = localGame(
                 {startTime: 0},
                 {type: GAME_RESET}
             );
@@ -80,7 +79,7 @@ describe('currentGame', () => {
         });
 
         it('should change playerWords to [""]', () => {
-            const result = currentGame(
+            const result = localGame(
                 {playerWords: ["abc", "xyz"]},
                 {type: GAME_RESET}
             );
@@ -88,7 +87,7 @@ describe('currentGame', () => {
         });
 
         it('should change words to []', () => {
-            const result = currentGame(
+            const result = localGame(
                 {words: ["abc", "xyz"]},
                 {type: GAME_RESET}
             );
@@ -98,7 +97,7 @@ describe('currentGame', () => {
 
     describe('action ' + WORDS_FETCH_SUCCESS, () => {
         it('should change words to ones that are provided by action', () => {
-            const result = currentGame(
+            const result = localGame(
                 {words: ["xyz", "xyz", "xyz"]},
                 {
                     type: WORDS_FETCH_SUCCESS,
@@ -113,7 +112,7 @@ describe('currentGame', () => {
     describe('action ' + TICK, () => {
         it('should set currentTime to current timestamp', () => {
             let clock = sinon.useFakeTimers(new Date(2011, 9, 1).getTime());
-            const result = currentGame(
+            const result = localGame(
                 {currentTime: 0},
                 {type: TICK}
             );

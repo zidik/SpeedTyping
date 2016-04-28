@@ -9,7 +9,7 @@ const conf = {
 
 let connection;
 
-export function connectionRequested() {
+export function connectionRequested(messageActionCreator) {
     return (dispatch) => {
         connection = new WebSocket(
             `ws://${conf.host}:${conf.port}/`,
@@ -24,16 +24,28 @@ export function connectionRequested() {
             dispatch(connectionDropped())
         };
 
-        connection.onmessage = (message) =>
-            dispatch(messageReceived(message))
+        connection.onmessage = (message) => {
+            let parsedMessage;
+            try {
+                parsedMessage = JSON.parse(message.data);
+            } catch (error) {
+                console.error("error parsing websocket message", message.data);
+                return;
+            }
+            console.debug("Received message from websocket:", parsedMessage);
+            const action = messageActionCreator(parsedMessage);
+
+            dispatch(action);
+
+        }
     };
 }
 
 // This should not be used directly in containers.
 // It is impure and is not an action.
 // Other action creators should import this and wrap with the domain action
-export const sendWebsocketMessage = (message) => {
-    console.log("Sending message to websocket", message);
+export const sendMessage = (message) => {
+    console.debug("Sending message to websocket", message);
     let jsonMessage;
     try {
         jsonMessage = JSON.stringify(message);
@@ -59,13 +71,3 @@ const connectionDropped = () => {
         payload: {}
     }
 };
-
-function messageReceived(message){
-    let parsedMessage;
-    try {
-        parsedMessage = JSON.parse(message.data)
-    } catch (error) {
-        console.log("error parsing websocket message", message.data)
-    }
-    console.log("received from websocket", parsedMessage)
-}
