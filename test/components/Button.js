@@ -3,37 +3,53 @@
 import React from "react";
 import TestUtils from "react-addons-test-utils";
 import Button from "../../es6/components/Button";
+import { wrapAndFindByTag } from '../Wrapper';
 
 describe('Button', () => {
+    let onClick;
+    let button;
 
-    class Wrapper extends React.Component {
-        render() {
-            return <div>{this.props.children}</div>
-        }
-    }
+    describe('enabled', () => {
+        beforeEach(() => {
+            onClick = sinon.stub();
+            button = wrapAndFindByTag(
+                <Button click={onClick} value="start" disabled={false}/>,
+                'input'
+            );
+        });
 
-    var buildButton = ((onclick, value) => {
-        return TestUtils.renderIntoDocument(
-            <Wrapper>
-                <Button click={onclick} value={value}/>
-            </Wrapper>
-        );
+        it('should render the current value', () => {
+            expect(button.value).to.eq("start");
+        });
+
+        it('should call onClick prop on click', () => {
+            TestUtils.Simulate.click(button);
+            //noinspection BadExpressionStatementJS
+            expect(onClick).to.have.been.called.once;
+        });
+
+        it('should not call handleChange prop without click', () => {
+            //noinspection BadExpressionStatementJS
+            expect(onClick).to.not.have.been.called;
+        });
+
+        it('should render the button enabled', () => {
+            expect(button.disabled).to.eq(false);
+        });
+    });
+    describe('disabled', () => {
+        beforeEach(() => {
+            onClick = sinon.stub();
+            button = wrapAndFindByTag(
+                <Button click={onClick} value="start" disabled={true}/>,
+                'input'
+            );
+        });
+
+        it('should render the button disabled', () => {
+            expect(button.disabled).to.eq(true);
+        });
+
     });
 
-    it('should render the current value', () => {
-        let onClick = sinon.stub;
-        let button = buildButton(onClick, "start");
-        let buttonComp = TestUtils.findRenderedDOMComponentWithTag(button, 'input');
-        expect(buttonComp.value).to.eq("start");
-    });
-
-    it('should call handleChange prop on change (with current value)', () => {
-        let onClick = sinon.stub();
-        let button = buildButton(onClick, "start");
-        let buttonComp = TestUtils.findRenderedDOMComponentWithTag(button, 'input');
-
-        TestUtils.Simulate.click(buttonComp);
-
-        expect(onClick).to.have.been.calledWith();
-    });
 });

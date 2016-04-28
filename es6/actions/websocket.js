@@ -32,9 +32,8 @@ export function connectionRequested(messageActionCreator) {
                 console.error("error parsing websocket message", message.data);
                 return;
             }
-            console.debug("Received message from websocket:", parsedMessage);
-            const action = messageActionCreator(parsedMessage);
 
+            const action = messageActionCreator(parsedMessage);
             dispatch(action);
 
         }
@@ -45,7 +44,6 @@ export function connectionRequested(messageActionCreator) {
 // It is impure and is not an action.
 // Other action creators should import this and wrap with the domain action
 export const sendMessage = (message) => {
-    console.debug("Sending message to websocket", message);
     let jsonMessage;
     try {
         jsonMessage = JSON.stringify(message);

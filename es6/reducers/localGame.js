@@ -1,7 +1,6 @@
 import * as act from "../actions";
 
 const initialState = {
-    isFetchingWords: false,
     gameStarted: false,
     startTime: undefined,
     currentTime: undefined,
