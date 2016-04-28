@@ -5,7 +5,7 @@ import Words from "./../containers/Words";
 import StartStopButton from "./../containers/StartStopButton";
 import HighScore from "./../containers/HighScore";
 
-const TypingGame = (props)=>(
+const TypingGameInstance = (props)=>(
     <div className="gameInstance">
             <h3> {props.isLocal?"Local":"Remote"} </h3>
             <Words isLocal={props.isLocal}/>
@@ -17,8 +17,8 @@ const TypingGame = (props)=>(
 
 );
 
-TypingGame.propTypes = {
+TypingGameInstance.propTypes = {
     isLocal: React.PropTypes.bool.isRequired
 };
 
-export default TypingGame;
+export default TypingGameInstance;

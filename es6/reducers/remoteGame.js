@@ -1,7 +1,7 @@
 import * as act from "../actions";
-import {calcAccuracy, calcWordsPerMinute} from "./Statistics";
 
 const initialState = {
+    connected: false,
     startTime: undefined,
     currentTime: undefined,
     words: [],
@@ -16,7 +16,11 @@ const initialState = {
 export default function currentGame(state = initialState, action) {
     switch (action.type) {
         case act.REMOTE_STATE_RECEIVED:
-            return {...state, ...action.state};
+            return {
+                ...state,
+                ...action.remoteState,
+                connected: true
+            };
 
         default:
             return state

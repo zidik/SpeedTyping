@@ -6,9 +6,9 @@ import {createStore, applyMiddleware} from "redux";
 import thunkMiddleware from "redux-thunk";
 import constantActionLogger from "./middleware/constantActionLogger";
 import typingGame from "./reducers";
-import TypingGame from "./components/TypingGame";
+import TypingGame from "./containers/TypingGame";
 import * as websocket from "./actions/websocket"
-import {receivedRemoteComments} from "./actions"
+import {receivedRemoteState} from "./actions"
 
 const store = createStore(
     typingGame,
@@ -26,11 +26,21 @@ ReactDOM.render(
 );
 
 let previousGameState;
+let previousConnState;
+
 const listener = () => {
-    const currentGameState = store.getState().localGame;
+    const state = store.getState();
+
+    const currentGameState = state.localGame;
+    const currentConnState = state.remoteGame.connected;
+
+    const gameStateChanged  = previousGameState !== currentGameState;
+    const connectionChanged = previousConnState !== currentConnState;
     
-    if (previousGameState !== currentGameState) {
+    if (gameStateChanged || connectionChanged) {
         previousGameState = currentGameState;
+        previousConnState = currentConnState;
+        
         websocket.sendMessage(currentGameState);
     }
 };
@@ -39,7 +49,7 @@ const unsubscribe = store.subscribe(listener);
 
 store.dispatch(
     websocket.connectionRequested(
-        receivedRemoteComments
+        receivedRemoteState
     )
 
 );

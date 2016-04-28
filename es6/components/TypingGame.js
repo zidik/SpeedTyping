@@ -9,12 +9,14 @@ const TypingGame = (props)=>(
         <h2> Typing Game </h2>
         <div className="gameInstances">
             <TypingGameInstance isLocal={true}  />
-            <TypingGameInstance isLocal={false} />
+            {props.showRemote ? <TypingGameInstance isLocal={false} /> : console.log("WHUT")}
         </div>
     </div>
 
 );
 
-TypingGame.propTypes = {};
+TypingGame.propTypes = {
+    showRemote: React.PropTypes.bool.isRequired
+};
 
 export default TypingGame;

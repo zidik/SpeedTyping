@@ -94,7 +94,7 @@ export function fetchWords(jsonConsumer) {
     }
 };
 
-export const receivedRemoteComments = (state) => ({
+export const receivedRemoteState = (remoteState) => ({
     type: REMOTE_STATE_RECEIVED,
-    state
+    remoteState
 });
