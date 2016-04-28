@@ -7,8 +7,8 @@ import thunkMiddleware from "redux-thunk";
 import constantActionLogger from "./middleware/constantActionLogger";
 import typingGame from "./reducers";
 import TypingGame from "./containers/TypingGame";
-import * as websocket from "./actions/websocket"
-import {receivedRemoteState} from "./actions"
+import * as websocket from "./actions/websocket";
+import {receivedRemoteState} from "./actions";
 
 const store = createStore(
     typingGame,
@@ -34,13 +34,13 @@ const listener = () => {
     const currentGameState = state.localGame;
     const currentConnState = state.remoteGame.connected;
 
-    const gameStateChanged  = previousGameState !== currentGameState;
+    const gameStateChanged = previousGameState !== currentGameState;
     const connectionChanged = previousConnState !== currentConnState;
-    
+
     if (gameStateChanged || connectionChanged) {
         previousGameState = currentGameState;
         previousConnState = currentConnState;
-        
+
         websocket.sendMessage(currentGameState);
     }
 };
@@ -51,5 +51,4 @@ store.dispatch(
     websocket.connectionRequested(
         receivedRemoteState
     )
-
 );

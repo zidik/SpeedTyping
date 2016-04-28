@@ -31,7 +31,7 @@ export const startGame = (startTime) => ({
 
 export const stopGame = (wordsPerMinute, accuracy) => ({
     type: GAME_STOP,
-    score:{
+    score: {
         wordsPerMinute,
         accuracy
     }
@@ -92,8 +92,7 @@ export function fetchWords(jsonConsumer) {
             );
         // One day, catch error here...
     }
-};
-
+}
 export const receivedRemoteState = (remoteState) => ({
     type: REMOTE_STATE_RECEIVED,
     remoteState

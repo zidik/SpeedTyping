@@ -3,13 +3,12 @@
 import React from "react";
 import TestUtils from "react-addons-test-utils";
 import Letter from "../../es6/components/Letter";
-
-import { wrap } from '../Wrapper'
+import {wrap} from "../Wrapper";
 
 describe('Letter', () => {
 
     var buildLetter = ((status, letter) => {
-        let dom = wrap( <Letter status={status} letter={letter}/> );
+        let dom = wrap(<Letter status={status} letter={letter}/>);
         return TestUtils.findRenderedDOMComponentWithClass(dom, "letter")
     });
 

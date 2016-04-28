@@ -2,7 +2,7 @@
 import {connect} from "react-redux";
 import TypingGame from "./../components/TypingGame";
 
-function mapStateToProps (state){
+function mapStateToProps(state) {
     return {
         showRemote: state.remoteGame.connected
     }

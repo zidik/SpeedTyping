@@ -10,8 +10,6 @@ import HighScore from "../../es6/containers/HighScore";
 import StartStopButton from "../../es6/containers/StartStopButton";
 
 
-
-
 describe('TypingGameInstance', () => {
 
     var buildTypingGameInstance = ((props) => {
@@ -41,7 +39,6 @@ describe('TypingGameInstance', () => {
         let renderedComponentTypes = [["Words", Words], ["InputField", InputField], ["StartStopButton", StartStopButton], ["Statistics", Statistics], ["HighScore", HighScore]];
         shouldRenderComponents({isLocal: true}, 1, renderedComponentTypes);
     });
-
 
 
     describe('remote instance', () => {

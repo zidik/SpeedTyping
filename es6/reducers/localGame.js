@@ -6,7 +6,7 @@ const initialState = {
     currentTime: undefined,
     words: [],
     playerWords: [""],
-    
+
     highScore: {
         wordsPerMinute: 0,
         accuracy: 0

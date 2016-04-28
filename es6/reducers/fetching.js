@@ -1,7 +1,4 @@
-import {
-    WORDS_FETCH_REQUEST,
-    WORDS_FETCH_SUCCESS
-} from "../actions";
+import {WORDS_FETCH_REQUEST, WORDS_FETCH_SUCCESS} from "../actions";
 
 const initialState = {
     isFetchingWords: false

@@ -1,13 +1,6 @@
 "use strict";
 import localGame from "../../es6/reducers/localGame";
-import {
-    INPUT_CHANGE,
-    GAME_START,
-    GAME_STOP,
-    GAME_RESET,
-    WORDS_FETCH_SUCCESS,
-    TICK
-} from "../../es6/actions";
+import {INPUT_CHANGE, GAME_START, GAME_STOP, GAME_RESET, WORDS_FETCH_SUCCESS, TICK} from "../../es6/actions";
 
 
 describe('localGame', () => {
@@ -41,8 +34,10 @@ describe('localGame', () => {
         it('should initialize times with timestamp provided by action', () => {
             const result = localGame(
                 {startTime: 0, currentTime: 0},
-                {type: GAME_START,
-                startTime: 1231513}
+                {
+                    type: GAME_START,
+                    startTime: 1231513
+                }
             );
             expect(result.startTime).to.eq(1231513);
             expect(result.currentTime).to.eq(1231513);
@@ -61,9 +56,9 @@ describe('localGame', () => {
                 },
                 {
                     type: GAME_STOP,
-                    score:{
-                        wordsPerMinute:2.34,
-                        accuracy:78
+                    score: {
+                        wordsPerMinute: 2.34,
+                        accuracy: 78
                     }
                 }
             );

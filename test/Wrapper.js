@@ -1,8 +1,8 @@
-import React from 'react';
-import TestUtils from 'react-addons-test-utils';
+import React from "react";
+import TestUtils from "react-addons-test-utils";
 
 const Wrapper = React.createClass({
-    render: function() {
+    render: function () {
         return (
             <div>{this.props.children}</div>
         );
@@ -22,4 +22,4 @@ const wrapAndFindByTag = (element, tagName) => {
     return TestUtils.findRenderedDOMComponentWithTag(dom, tagName)
 };
 
-module.exports = { wrap, wrapAndFindByTag };
+module.exports = {wrap, wrapAndFindByTag};

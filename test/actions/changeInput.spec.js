@@ -1,13 +1,8 @@
 'use strict';
-import {
-    changeInput,
-    startGame,
-    GAME_START,
-    INPUT_CHANGE,
-} from "../../es6/actions";
+import {changeInput, startGame, GAME_START, INPUT_CHANGE} from "../../es6/actions";
 
 const shouldCreateAction = (creator, action, ...args) =>
-    it('should create '+action+' action', () => {
+    it('should create ' + action + ' action', () => {
         expect(creator(...args).type).to.eq(action)
     });
 

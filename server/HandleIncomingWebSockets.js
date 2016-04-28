@@ -42,6 +42,8 @@ function broadCast(originConnection, utf8Data) {
     liveConnections.filter(
         (connection) => connection !== originConnection
     ).forEach(
-        (connection) => { connection.sendUTF(utf8Data) }
+        (connection) => {
+            connection.sendUTF(utf8Data)
+        }
     )
 }

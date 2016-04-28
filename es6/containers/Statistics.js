@@ -4,7 +4,7 @@ import Statistics from "./../components/Statistics";
 import {calcAccuracy, calcWordsPerMinute} from "./../reducers/selectors";
 import {calcTimeElapsed} from "./../reducers";
 
-function mapStateToProps (state, props){
+function mapStateToProps(state, props) {
     const game = props.isLocal ? state.localGame : state.remoteGame;
     return {
         wordsPerMinute: calcWordsPerMinute(game).toFixed(2),

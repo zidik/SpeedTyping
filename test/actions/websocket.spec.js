@@ -2,10 +2,9 @@ import {
     connectionRequested,
     sendMessage,
     WEBSOCKET_CONNECTION_ESTABLISHED,
-    WEBSOCKET_CONNECTION_DROPPED,
-} from './../../es6/actions/websocket'
-
-import { WebSocket, Server } from 'mock-socket'
+    WEBSOCKET_CONNECTION_DROPPED
+} from "./../../es6/actions/websocket";
+import {WebSocket, Server} from "mock-socket";
 
 const actualWebSocket = window.WebSocket;
 let clock, dispatch, getState;

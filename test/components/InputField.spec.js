@@ -3,7 +3,7 @@
 import React from "react";
 import TestUtils from "react-addons-test-utils";
 import InputField from "../../es6/components/InputField";
-import { wrapAndFindByTag } from '../Wrapper';
+import {wrapAndFindByTag} from "../Wrapper";
 
 describe('InputField', () => {
     let handleChange;

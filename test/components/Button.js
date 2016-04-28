@@ -3,7 +3,7 @@
 import React from "react";
 import TestUtils from "react-addons-test-utils";
 import Button from "../../es6/components/Button";
-import { wrapAndFindByTag } from '../Wrapper';
+import {wrapAndFindByTag} from "../Wrapper";
 
 describe('Button', () => {
     let onClick;
