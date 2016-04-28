@@ -1,7 +1,7 @@
 "use strict";
 
 import fetch from "isomorphic-fetch";
-import {calcWordsPerMinute, calcAccuracy} from "../reducers/Statistics";
+import {calcWordsPerMinute, calcAccuracy} from "../reducers/selectors";
 
 export const INPUT_CHANGE = 'INPUT_CHANGE';
 

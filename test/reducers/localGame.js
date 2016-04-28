@@ -10,7 +10,7 @@ import {
 } from "../../es6/actions";
 
 
-describe('currentGame', () => {
+describe('localGame', () => {
     describe('action ' + INPUT_CHANGE, () => {
         it('should change current playerWord', () => {
             const result = localGame({playerWords: ["previous", ""]}, {
@@ -54,17 +54,22 @@ describe('currentGame', () => {
             const result = localGame(
                 {
                     gameStarted: true,
-                    highest_wordsPerMinute: 0,
-                    highest_accuracy: 0,
-                    words: ["A"],
-                    playerWords: ["A", ""],
-                    startTime: Date.now() - 10
+                    highScore: {
+                        wordsPerMinute: 1.4,
+                        accuracy: 68
+                    }
                 },
-                {type: GAME_STOP}
+                {
+                    type: GAME_STOP,
+                    score:{
+                        wordsPerMinute:2.34,
+                        accuracy:78
+                    }
+                }
             );
             expect(result.gameStarted).to.eq(false);
-            expect(result.highest_accuracy).to.eq(100);
-            expect(result.highest_wordsPerMinute).to.be.gt(0);
+            expect(result.highScore.wordsPerMinute).to.eq(2.34);
+            expect(result.highScore.accuracy).to.eq(78);
         });
 
     });
