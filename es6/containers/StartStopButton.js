@@ -2,7 +2,7 @@
 
 import Button from "../components/Button";
 import {connect} from "react-redux";
-import {fetchWords, start, stop} from "../actions";
+import {start, stop} from "../actions";
 
 const mapStateToProps = (state) => ({
     gameStarted: state.localGame.gameStarted,
@@ -10,7 +10,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    startClick: () => dispatch(fetchWords(start)),
+    startClick: () => dispatch(start()),
     stopClick: () => dispatch(stop())
 });
 

@@ -1,7 +1,7 @@
 "use strict";
 import InputField from "../components/InputField";
 import {connect} from "react-redux";
-import {changeInput} from "../actions";
+import {changeInput} from "../actions/localGame";
 
 function mapStateToProps(state, props) {
     const game = state.localGame;

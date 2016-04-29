@@ -1,6 +1,13 @@
 "use strict";
 import localGame from "../../es6/reducers/localGame";
-import {INPUT_CHANGE, GAME_START, GAME_STOP, GAME_RESET, WORDS_FETCH_SUCCESS, TICK} from "../../es6/actions";
+import {
+    INPUT_CHANGE,
+    GAME_START,
+    GAME_STOP,
+    GAME_RESET,
+} from "../../es6/actions/localGame";
+import {WORDS_FETCH_SUCCESS} from "../../es6/actions/fetching";
+import {TICK} from "../../es6/actions/ticking"
 
 
 describe('localGame', () => {
@@ -45,10 +52,17 @@ describe('localGame', () => {
     });
     describe('action ' + GAME_STOP, () => {
 
-        it('should change gameStarted to false and change high scores when they are lower than previous', () => {
+        it('should change gameStarted to false', () => {
+            const result = localGame(
+                {gameStarted: true, highScore: {}},
+                {type: GAME_STOP, score:{}}
+            );
+            expect(result.gameStarted).to.eq(false);
+        });
+
+        it('should change change high scores when they are lower than previous', () => {
             const result = localGame(
                 {
-                    gameStarted: true,
                     highScore: {
                         wordsPerMinute: 1.4,
                         accuracy: 68
@@ -62,7 +76,6 @@ describe('localGame', () => {
                     }
                 }
             );
-            expect(result.gameStarted).to.eq(false);
             expect(result.highScore.wordsPerMinute).to.eq(2.34);
             expect(result.highScore.accuracy).to.eq(78);
         });
@@ -114,7 +127,10 @@ describe('localGame', () => {
             let clock = sinon.useFakeTimers(new Date(2011, 9, 1).getTime());
             const result = localGame(
                 {currentTime: 0},
-                {type: TICK}
+                {
+                    type: TICK,
+                    time:Date.now()
+                }
             );
             expect(result.currentTime).to.eq(Date.now());
             clock.restore();

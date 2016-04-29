@@ -1,4 +1,7 @@
-import * as act from "../actions";
+import * as actions from "../actions";
+import * as localGameActions from "../../es6/actions/localGame";
+import * as fetchActions from "../../es6/actions/fetching";
+import * as tickActions from "../../es6/actions/ticking";
 
 const initialState = {
     gameStarted: false,
@@ -15,19 +18,19 @@ const initialState = {
 
 export default function localGame(state = initialState, action) {
     switch (action.type) {
-        case act.INPUT_CHANGE:
+        case localGameActions.INPUT_CHANGE:
             return {
                 ...state,
                 playerWords: state.playerWords.slice(0, -1).concat(action.text.split(" "))
             };
 
-        case act.WORDS_FETCH_SUCCESS:
+        case fetchActions.WORDS_FETCH_SUCCESS:
             return {
                 ...state,
                 words: action.words
             };
 
-        case act.GAME_START:
+        case localGameActions.GAME_START:
             return {
                 ...state,
                 gameStarted: true,
@@ -35,7 +38,7 @@ export default function localGame(state = initialState, action) {
                 currentTime: action.startTime
             };
 
-        case act.GAME_STOP:
+        case localGameActions.GAME_STOP:
             return {
                 ...state,
                 gameStarted: false,
@@ -54,7 +57,7 @@ export default function localGame(state = initialState, action) {
                 }
 
             };
-        case act.GAME_RESET:
+        case localGameActions.GAME_RESET:
             return {
                 ...state,
                 startTime: undefined,
@@ -62,10 +65,10 @@ export default function localGame(state = initialState, action) {
                 words: []
             };
 
-        case act.TICK:
+        case tickActions.TICK:
             return {
                 ...state,
-                currentTime: Date.now()
+                currentTime: action.time
             };
 
         default:

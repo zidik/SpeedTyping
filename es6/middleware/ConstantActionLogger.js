@@ -1,6 +1,6 @@
 "use strict";
 
-import R from 'ramda'
+import R from "ramda";
 
 const constantActionLogger = (logger) => (store) => (next) => (action) => {
     const stateBefore = store.getState();
