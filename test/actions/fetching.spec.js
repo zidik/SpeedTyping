@@ -1,12 +1,6 @@
 'use strict';
-import {
-    receiveWords,
-    requestWords,
-    WORDS_FETCH_REQUEST,
-    WORDS_FETCH_SUCCESS
-} from "../../es6/actions/fetching";
-
-import {shouldCreateAction} from "./helpers"
+import {receiveWords, requestWords, WORDS_FETCH_REQUEST, WORDS_FETCH_SUCCESS} from "../../es6/actions/fetching";
+import {shouldCreateAction} from "./helpers";
 
 describe('fetching actions', () => {
     describe('requestWords', () => {

@@ -45,7 +45,7 @@ const listener = () => {
     }
 };
 
-const unsubscribe = store.subscribe(listener);
+store.subscribe(listener);
 
 store.dispatch(
     websocket.connectionRequested(

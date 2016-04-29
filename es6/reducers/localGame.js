@@ -1,4 +1,3 @@
-import * as actions from "../actions";
 import * as localGameActions from "../../es6/actions/localGame";
 import * as fetchActions from "../../es6/actions/fetching";
 import * as tickActions from "../../es6/actions/ticking";

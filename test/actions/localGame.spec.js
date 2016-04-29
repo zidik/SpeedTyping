@@ -9,8 +9,7 @@ import {
     GAME_RESET,
     INPUT_CHANGE
 } from "../../es6/actions/localGame";
-
-import {shouldCreateAction} from "./helpers"
+import {shouldCreateAction} from "./helpers";
 
 describe('localGame actions', () => {
     describe('changeInput', () => {

@@ -1,11 +1,6 @@
 'use strict';
-import {
-TICK,
-startTicking,
-tick
-} from "../../es6/actions/ticking";
-
-import {shouldCreateAction} from "./helpers"
+import {TICK, tick} from "../../es6/actions/ticking";
+import {shouldCreateAction} from "./helpers";
 
 describe('ticking actions', () => {
     describe('tick()', () => {

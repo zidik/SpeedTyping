@@ -2,9 +2,9 @@
 
 import fetch from "isomorphic-fetch";
 import {calcWordsPerMinute, calcAccuracy} from "../reducers/selectors";
-import {receiveWords, requestWords} from "./fetching"
-import {startGame,stopGame, resetGame} from "./localGame"
-import {startTicking, stopTicking} from "./ticking"
+import {receiveWords, requestWords} from "./fetching";
+import {startGame, stopGame, resetGame} from "./localGame";
+import {startTicking, stopTicking} from "./ticking";
 
 export const REMOTE_STATE_RECEIVED = "REMOTE_STATE_RECEIVED";
 export const receivedRemoteState = (remoteState) => ({

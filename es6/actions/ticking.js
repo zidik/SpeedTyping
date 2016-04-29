@@ -2,7 +2,7 @@
 export const TICK = 'TICK';
 
 let interval;
-export function startTicking(period=100) {
+export function startTicking(period = 100) {
     return (dispatch) => {
         // This keeps the clock ticking
         interval = setInterval(
@@ -12,10 +12,11 @@ export function startTicking(period=100) {
     }
 }
 
-export function stopTicking(){clearInterval(interval);}
-
+export function stopTicking() {
+    clearInterval(interval);
+}
 
 
 export const tick = (time) => ({
-    type:TICK, time
+    type: TICK, time
 });

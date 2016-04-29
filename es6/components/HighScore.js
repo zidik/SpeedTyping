@@ -11,7 +11,7 @@ const HighScore = (props) =>
 
 HighScore.propTypes = {
     wordsPerMinute: React.PropTypes.string.isRequired,
-    accuracy: React.PropTypes.string.isRequired,
+    accuracy: React.PropTypes.string.isRequired
 };
 
 export default HighScore;

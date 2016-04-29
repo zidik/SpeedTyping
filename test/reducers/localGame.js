@@ -1,13 +1,8 @@
 "use strict";
 import localGame from "../../es6/reducers/localGame";
-import {
-    INPUT_CHANGE,
-    GAME_START,
-    GAME_STOP,
-    GAME_RESET,
-} from "../../es6/actions/localGame";
+import {INPUT_CHANGE, GAME_START, GAME_STOP, GAME_RESET} from "../../es6/actions/localGame";
 import {WORDS_FETCH_SUCCESS} from "../../es6/actions/fetching";
-import {TICK} from "../../es6/actions/ticking"
+import {TICK} from "../../es6/actions/ticking";
 
 
 describe('localGame', () => {
@@ -55,7 +50,7 @@ describe('localGame', () => {
         it('should change gameStarted to false', () => {
             const result = localGame(
                 {gameStarted: true, highScore: {}},
-                {type: GAME_STOP, score:{}}
+                {type: GAME_STOP, score: {}}
             );
             expect(result.gameStarted).to.eq(false);
         });
@@ -129,7 +124,7 @@ describe('localGame', () => {
                 {currentTime: 0},
                 {
                     type: TICK,
-                    time:Date.now()
+                    time: Date.now()
                 }
             );
             expect(result.currentTime).to.eq(Date.now());
