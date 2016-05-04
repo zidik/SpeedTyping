@@ -18,7 +18,7 @@ export default function currentGame(state = initialState, action) {
         case act.REMOTE_STATE_RECEIVED:
             return {
                 ...state,
-                ...action.remoteState,
+                ...action.remoteState.gameState,
                 connected: true
             };
 

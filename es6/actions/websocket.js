@@ -32,7 +32,6 @@ export function connectionRequested(messageActionCreator) {
                 console.error("error parsing websocket message", message.data);
                 return;
             }
-
             const action = messageActionCreator(parsedMessage);
             dispatch(action);
 
