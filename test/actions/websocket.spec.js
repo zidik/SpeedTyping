@@ -76,7 +76,6 @@ describe('Websocket actions', () => {
 
         it('ignores unparseable messages', () => {
             mockServer.send('[}');
-            //noinspection BadExpressionStatementJS
             expect(dispatch).to.not.have.been.called
         })
     })

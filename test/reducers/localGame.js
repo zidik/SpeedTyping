@@ -1,23 +1,25 @@
 import localGame from "../../es6/reducers/localGame";
-import {INPUT_CHANGE, GAME_START, GAME_STOP, GAME_RESET} from "../../es6/actions/localGame";
+import {GAME_START, GAME_STOP, GAME_RESET} from "../../es6/actions/localGame";
 import {WORDS_FETCH_SUCCESS} from "../../es6/actions/fetching";
 import {TICK} from "../../es6/actions/ticking";
+import {GLOBAL_KEY_PRESSED} from '../../es6/actions/keypress';
+
 
 
 describe('localGame', () => {
-    describe('action ' + INPUT_CHANGE, () => {
+    describe('action ' + GLOBAL_KEY_PRESSED, () => {
         it('should change current playerWord', () => {
             const result = localGame({playerWords: ["previous", ""]}, {
-                type: INPUT_CHANGE,
-                text: "Skyrim"
+                type: GLOBAL_KEY_PRESSED,
+                key: "a"
             });
-            expect(result.playerWords).to.deep.eq(["previous", "Skyrim"]);
+            expect(result.playerWords).to.deep.eq(["previous", "a"]);
         });
 
-        it('should advance to next word when input with space is given', () => {
-            const result = localGame({playerWords: [""]}, {
-                type: INPUT_CHANGE,
-                text: "Skyrim "
+        it('should advance to next word when space is hit', () => {
+            const result = localGame({playerWords: ["Skyrim"]}, {
+                type: GLOBAL_KEY_PRESSED,
+                key: " "
             });
             expect(result.playerWords).to.deep.eq(["Skyrim", ""])
         });
@@ -81,7 +83,6 @@ describe('localGame', () => {
                 {startTime: 0},
                 {type: GAME_RESET}
             );
-            //noinspection BadExpressionStatementJS
             expect(result.startTime).to.be.undefined;
         });
 

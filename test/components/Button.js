@@ -22,12 +22,10 @@ describe('Button', () => {
 
         it('should call onClick prop on click', () => {
             TestUtils.Simulate.click(button);
-            //noinspection BadExpressionStatementJS
             expect(onClick).to.have.been.called.once;
         });
 
         it('should not call handleChange prop without click', () => {
-            //noinspection BadExpressionStatementJS
             expect(onClick).to.not.have.been.called;
         });
 

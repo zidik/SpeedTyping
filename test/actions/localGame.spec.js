@@ -1,24 +1,14 @@
 import {
-    changeInput,
     startGame,
     stopGame,
     resetGame,
     GAME_START,
     GAME_STOP,
-    GAME_RESET,
-    INPUT_CHANGE
+    GAME_RESET
 } from "../../es6/actions/localGame";
 import {shouldCreateAction} from "./helpers";
 
 describe('localGame actions', () => {
-    describe('changeInput', () => {
-        shouldCreateAction(changeInput, INPUT_CHANGE);
-
-        it('should add text to action', () => {
-            expect(changeInput('Use Redux').text).to.eq("Use Redux");
-        });
-
-    });
 
     describe('startGame', () => {
         shouldCreateAction(startGame, GAME_START);

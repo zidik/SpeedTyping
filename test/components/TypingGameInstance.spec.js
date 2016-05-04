@@ -2,7 +2,6 @@ import React from "react";
 import TestUtils from "react-addons-test-utils";
 import TypingGameInstance from "../../es6/components/TypingGameInstance";
 import Words from "../../es6/containers/Words";
-import InputField from "../../es6/containers/InputField";
 import Statistics from "../../es6/containers/Statistics";
 import HighScore from "../../es6/containers/HighScore";
 import StartStopButton from "../../es6/containers/StartStopButton";
@@ -34,7 +33,7 @@ describe('TypingGameInstance', () => {
 
 
     describe('local instance', () => {
-        let renderedComponentTypes = [["Words", Words], ["InputField", InputField], ["StartStopButton", StartStopButton], ["Statistics", Statistics], ["HighScore", HighScore]];
+        let renderedComponentTypes = [["Words", Words], ["StartStopButton", StartStopButton], ["Statistics", Statistics], ["HighScore", HighScore]];
         shouldRenderComponents({isLocal: true}, 1, renderedComponentTypes);
     });
 
@@ -42,7 +41,7 @@ describe('TypingGameInstance', () => {
     describe('remote instance', () => {
         let renderedComponentTypes = [["Words", Words], ["Statistics", Statistics], ["HighScore", HighScore]];
         shouldRenderComponents({isLocal: false}, 1, renderedComponentTypes);
-        let notRenderedComponentTypes = [["InputField", InputField], ["StartStopButton", StartStopButton]];
+        let notRenderedComponentTypes = [["StartStopButton", StartStopButton]];
         shouldRenderComponents({isLocal: false}, 0, notRenderedComponentTypes);
     });
 
