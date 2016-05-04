@@ -25,4 +25,4 @@ export default function currentGame(state = initialState, action) {
         default:
             return state
     }
-};
+}

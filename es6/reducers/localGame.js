@@ -73,4 +73,4 @@ export default function localGame(state = initialState, action) {
         default:
             return state
     }
-};
+}
