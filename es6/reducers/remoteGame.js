@@ -1,4 +1,4 @@
-import * as act from "../actions";
+import * as remoteActions from "../actions/remote";
 
 const initialState = {
     connected: false,
@@ -15,7 +15,7 @@ const initialState = {
 
 export default function currentGame(state = initialState, action) {
     switch (action.type) {
-        case act.REMOTE_STATE_RECEIVED:
+        case remoteActions.REMOTE_STATE_RECEIVED:
             return {
                 ...state,
                 ...action.remoteState.gameState,

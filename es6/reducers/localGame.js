@@ -1,6 +1,7 @@
 import * as localGameActions from "../../es6/actions/localGame";
 import * as fetchActions from "../../es6/actions/fetching";
 import * as tickActions from "../../es6/actions/ticking";
+import * as keypressActions from "../../es6/actions/keypress";
 
 const initialState = {
     gameStarted: false,
@@ -17,11 +18,20 @@ const initialState = {
 
 export default function localGame(state = initialState, action) {
     switch (action.type) {
-        case localGameActions.INPUT_CHANGE:
-            return {
-                ...state,
-                playerWords: state.playerWords.slice(0, -1).concat(action.text.split(" "))
-            };
+        case keypressActions.GLOBAL_KEY_PRESSED:
+            if(action.key == " "){
+                return {
+                    ...state,
+                    playerWords: [...state.playerWords, ""]
+                }
+            } else {
+                let previousWords = state.playerWords.slice(0, -1);
+                let currentWord = state.playerWords[state.playerWords.length-1];
+                return {
+                    ...state,
+                    playerWords: [...previousWords, currentWord + action.key]
+                }
+            }
 
         case fetchActions.WORDS_FETCH_SUCCESS:
             return {
