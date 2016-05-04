@@ -1,5 +1,3 @@
-"use strict";
-
 import Words from "../components/Words";
 import {connect} from "react-redux";
 

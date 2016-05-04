@@ -1,5 +1,3 @@
-"use strict";
-
 import R from "ramda";
 
 const constantActionLogger = (logger) => (store) => (next) => (action) => {

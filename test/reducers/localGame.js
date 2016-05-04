@@ -1,4 +1,3 @@
-"use strict";
 import localGame from "../../es6/reducers/localGame";
 import {INPUT_CHANGE, GAME_START, GAME_STOP, GAME_RESET} from "../../es6/actions/localGame";
 import {WORDS_FETCH_SUCCESS} from "../../es6/actions/fetching";

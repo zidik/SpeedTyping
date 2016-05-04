@@ -1,5 +1,3 @@
-"use strict";
-
 export const calcAccuracy = ({words, playerWords}) => {
     if (playerWords.length <= 1) return 0;
     let completeWords = playerWords.slice(0, -1);

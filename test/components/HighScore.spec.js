@@ -1,5 +1,3 @@
-'use strict';
-
 import React from "react";
 import TestUtils from "react-addons-test-utils";
 import HighScore from "../../es6/components/HighScore";

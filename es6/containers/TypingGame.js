@@ -1,4 +1,3 @@
-"use strict";
 import {connect} from "react-redux";
 import TypingGame from "./../components/TypingGame";
 

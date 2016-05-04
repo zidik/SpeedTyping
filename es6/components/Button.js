@@ -1,12 +1,10 @@
-"use strict";
-
 import React from "react";
 
 const Button = (props) => (
     <input
         type="button"
         value={props.value}
-        onClick={(e) => props.click()}
+        onClick={() => props.click()}
         disabled={props.disabled}
     />
 );

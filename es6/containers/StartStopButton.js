@@ -1,5 +1,3 @@
-"use strict";
-
 import Button from "../components/Button";
 import {connect} from "react-redux";
 import {start, stop} from "../actions";

@@ -1,5 +1,3 @@
-"use strict";
-
 import fetch from "isomorphic-fetch";
 import {calcWordsPerMinute, calcAccuracy} from "../reducers/selectors";
 import {receiveWords, requestWords} from "./fetching";

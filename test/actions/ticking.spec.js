@@ -1,4 +1,3 @@
-'use strict';
 import {TICK, tick} from "../../es6/actions/ticking";
 import {shouldCreateAction} from "./helpers";
 

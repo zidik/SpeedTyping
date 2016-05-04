@@ -1,4 +1,3 @@
-"use strict";
 import Letter from "../components/Letter";
 import R from "ramda";
 import classNames from "classnames";

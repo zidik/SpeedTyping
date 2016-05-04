@@ -1,5 +1,3 @@
-"use strict";
-
 const WebSocketServer = require('./WebSocketServer');
 const WebpackDevServer = require('./WebpackDevServer');
 
