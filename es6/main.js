@@ -22,15 +22,20 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
 
-const store = createStore(
-    reducer,
-    applyMiddleware(
+
+import R from 'ramda'
+const finalCreateStore = R.compose(
+  applyMiddleware(
         thunkMiddleware,
         routerMiddleware(browserHistory),
         websocketPublisher(websocket.sendMessage),
         constantActionLogger(console)
-    )
-);
+  ),
+  window.devToolsExtension ? window.devToolsExtension() : R.identity
+)(createStore)
+
+let store = finalCreateStore(reducer)
+
 
 const history = syncHistoryWithStore(browserHistory, store)
 let Routes = createRoutes(history)
