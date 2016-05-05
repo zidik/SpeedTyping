@@ -1,33 +1,32 @@
-import React from "react";
-import { Link } from 'react-router';
+import React from 'react';
+import AppBar from 'material-ui/AppBar';
+import IconButton from 'material-ui/IconButton';
 import FlatButton from 'material-ui/FlatButton';
-
-const LinkToPlay = () => <FlatButton
-        containerElement={<Link to="/play" />}
-        label="Play" />
+import {Toolbar, ToolbarGroup} from 'material-ui/Toolbar';
         
-const LinkToPastGames = () => <FlatButton
-        containerElement={<Link to="/pastGames" />}
-        label="Past games" />
-        
-const LinkToAbout = () => <FlatButton
-        containerElement={<Link to="/about" />}
-        label="About" />
 
+const AppWrapper = (props) =>
+  <div>
+    <AppBar
+      title="Speed Typer"
+      iconElementRight={<IconButton iconClassName="muidocs-icon-custom-github"/>}
+    />
+    <Toolbar>
+      <ToolbarGroup>
+        <FlatButton label="Play"       onTouchTap = {props.handleClick("/play")} />
+        <FlatButton label="Past games" onTouchTap = {props.handleClick("/pastGames")} />
+        <FlatButton label="About"      onTouchTap = {props.handleClick("/about")} />
+      </ToolbarGroup>
+    </Toolbar>
+    {props.children}
+  </div>
+;
 
-const AppWrapper = (props) => {
-  return(
-    <div>
-      <h1>Speed Typer</h1>
-      <LinkToPlay/>
-      <LinkToPastGames/>
-      <LinkToAbout/>
-      {props.children}
-    </div>
-  )
-}
 AppWrapper.propTypes = {
-    children: React.PropTypes.node.isRequired
+    children: React.PropTypes.node.isRequired,
+    handleClick: React.PropTypes.func.isRequired
 }
 
 export default AppWrapper;
+
+

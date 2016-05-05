@@ -1,7 +1,9 @@
 import React from "react";
 import { Router, Route, IndexRoute } from 'react-router';
+import About from './components/About';
+import AppWrapper from './containers/AppWrapper';
+import PastGames from './containers/PastGames';
 import TypingGame from './containers/TypingGame';
-import AppWrapper from './components/AppWrapper';
 
 
 export default (history) => () => {
@@ -10,8 +12,8 @@ export default (history) => () => {
       <Route path="/" component={AppWrapper}>
         <IndexRoute component={TypingGame} />
         <Route path="/play" component={TypingGame} />
-        <Route path="/pastGames" component={TypingGame} />
-        <Route path="/about" component={TypingGame} />
+        <Route path="/pastGames" component={PastGames} />
+        <Route path="/about" component={About} />
       </Route>
     </Router>
   )

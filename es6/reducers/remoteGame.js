@@ -7,10 +7,7 @@ const initialState = {
     words: [],
     playerWords: [""],
 
-    highScore: {
-        wordsPerMinute: 0,
-        accuracy: 0
-    }
+    pastGames:[]
 };
 
 export default function currentGame(state = initialState, action) {

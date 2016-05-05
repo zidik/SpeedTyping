@@ -1,8 +1,11 @@
 import Words from "../components/Words";
 import {connect} from "react-redux";
+import {selectGame} from "../reducers/selectors"
+
+
 
 function mapStateToProps(state, props) {
-    const game = props.isLocal ? state.localGame : state.remoteGame;
+    const game = selectGame(state, props);
 
     return {
         words: game.words,

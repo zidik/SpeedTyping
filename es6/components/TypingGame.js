@@ -1,12 +1,12 @@
 import React from "react";
-import TypingGameInstance from "./TypingGameInstance";
+import GameInstance from "./GameInstance";
 import KeypressListener from "./../containers/KeypressListener"
 
 const TypingGame = (props)=>(
     <div className="typingGame">
         <div className="gameInstances">
-            <TypingGameInstance isLocal={true}/>
-            {props.showRemote ? <TypingGameInstance isLocal={false}/> : ""}
+            <GameInstance gameType={"local"} gameNo={0}/>
+            {props.showRemote ? <GameInstance gameType={"remote"} gameNo={0}/> : ""}
         </div>
         <KeypressListener />
     </div>

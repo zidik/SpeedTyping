@@ -7,12 +7,9 @@ export const startGame = (startTime) => ({
     startTime
 });
 
-export const stopGame = (wordsPerMinute, accuracy) => ({
+export const stopGame = (game) => ({
     type: GAME_STOP,
-    score: {
-        wordsPerMinute,
-        accuracy
-    }
+    game
 });
 
 export function resetGame() {

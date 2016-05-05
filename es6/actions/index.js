@@ -1,8 +1,8 @@
 import fetch from "isomorphic-fetch";
-import {calcWordsPerMinute, calcAccuracy} from "../reducers/selectors";
 import {receiveWords, requestWords} from "./fetching";
 import {startGame, stopGame, resetGame} from "./localGame";
 import {startTicking, stopTicking} from "./ticking";
+import { push } from 'react-router-redux'
 
 export function start() {
     return (dispatch) => {
@@ -27,11 +27,9 @@ export function stop() {
         stopTicking();
         let state = getState();
         dispatch(
-            stopGame(
-                calcWordsPerMinute(state.localGame),
-                calcAccuracy(state.localGame)
-            )
+            stopGame(state.localGame)
         );
+        dispatch(push("/pastGames"));
     };
 }
 

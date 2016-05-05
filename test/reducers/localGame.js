@@ -50,30 +50,10 @@ describe('localGame', () => {
 
         it('should change gameStarted to false', () => {
             const result = localGame(
-                {gameStarted: true, highScore: {}},
-                {type: GAME_STOP, score: {}}
+                {gameStarted: true},
+                {type: GAME_STOP}
             );
             expect(result.gameStarted).to.eq(false);
-        });
-
-        it('should change change high scores when they are lower than previous', () => {
-            const result = localGame(
-                {
-                    highScore: {
-                        wordsPerMinute: 1.4,
-                        accuracy: 68
-                    }
-                },
-                {
-                    type: GAME_STOP,
-                    score: {
-                        wordsPerMinute: 2.34,
-                        accuracy: 78
-                    }
-                }
-            );
-            expect(result.highScore.wordsPerMinute).to.eq(2.34);
-            expect(result.highScore.accuracy).to.eq(78);
         });
 
     });

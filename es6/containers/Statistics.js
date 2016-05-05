@@ -1,10 +1,10 @@
 import {connect} from "react-redux";
 import Statistics from "./../components/Statistics";
-import {calcAccuracy, calcWordsPerMinute} from "./../reducers/selectors";
+import {selectGame, calcAccuracy, calcWordsPerMinute} from "./../reducers/selectors";
 import {calcTimeElapsed} from "./../reducers";
 
 function mapStateToProps(state, props) {
-    const game = props.isLocal ? state.localGame : state.remoteGame;
+    const game = selectGame(state, props);
     return {
         wordsPerMinute: calcWordsPerMinute(game).toFixed(2),
         accuracy: calcAccuracy(game).toFixed(0),

@@ -1,3 +1,5 @@
+import R from 'ramda';
+
 const publishToWebsocket = (sendWebsocketMessage) => {
     let previousRelevantState;
     return (store) => (next) => (action) => {
@@ -9,7 +11,7 @@ const publishToWebsocket = (sendWebsocketMessage) => {
             connected: state.remoteGame.connected
         }
 
-        let changesPresent = !Object.is(previousRelevantState, relevantState)
+        let changesPresent = !R.equals(previousRelevantState, relevantState)
 
         if (state.websocket.connected && changesPresent) {
             sendWebsocketMessage(relevantState)

@@ -9,16 +9,17 @@ const initialState = {
     currentTime: undefined,
     words: [],
     playerWords: [""],
-
-    highScore: {
-        wordsPerMinute: 0,
-        accuracy: 0
-    }
+    
+    pastGames:[]
 };
 
 export default function localGame(state = initialState, action) {
     switch (action.type) {
         case keypressActions.GLOBAL_KEY_PRESSED:
+            if(!state.gameStarted){
+                //Do not listen to keypresses before starting the game
+                return state;
+            }
             if(action.key == " "){
                 return {
                     ...state,
@@ -51,20 +52,7 @@ export default function localGame(state = initialState, action) {
             return {
                 ...state,
                 gameStarted: false,
-
-                //Update wordsPerMinute and accuracy
-                highScore: {
-                    ...state.highScore,
-                    wordsPerMinute: Math.max(
-                        state.highScore.wordsPerMinute,
-                        action.score.wordsPerMinute
-                    ),
-                    accuracy: Math.max(
-                        state.highScore.accuracy,
-                        action.score.accuracy
-                    )
-                }
-
+                pastGames: [...state.pastGames, action.game]
             };
         case localGameActions.GAME_RESET:
             return {
