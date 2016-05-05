@@ -98,22 +98,6 @@ ul {
     background: #fae882;
 }
 
-.typing-container {
-    box-sizing: border-box;
-    width: 100%;
-    margin: auto;
-    text-align: center;
-    letter-spacing: 2px;
-    font-size: 160%;
-    border: 1px solid black;
-    background: transparent;
-    font-family: "Open Sans", "DejaVu Sans", "Bitstream Vera Sans", "Arial", sans-serif;
-}
-
-.typing-container:disabled {
-    background: #dddddd;
-}
-
 .gameInstances {
     display: flex;
     flex-flow: row wrap;
@@ -123,8 +107,9 @@ ul {
 .gameInstance {
     flex: 1;
     width: 40%;
-    padding: 0.5em;
-
+    min-width: 350px;
+    padding: 1.5em;
+    margin: 1.0em;
     display: flex;
     flex-direction: column;
 }

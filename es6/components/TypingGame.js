@@ -4,7 +4,6 @@ import KeypressListener from "./../containers/KeypressListener"
 
 const TypingGame = (props)=>(
     <div className="typingGame">
-        <h2> Typing Game </h2>
         <div className="gameInstances">
             <TypingGameInstance isLocal={true}/>
             {props.showRemote ? <TypingGameInstance isLocal={false}/> : ""}
