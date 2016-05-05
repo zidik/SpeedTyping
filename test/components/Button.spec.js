@@ -11,13 +11,13 @@ describe('Button', () => {
         beforeEach(() => {
             onClick = sinon.stub();
             button = wrapAndFindByTag(
-                <Button click={onClick} value="start" disabled={false}/>,
-                'input'
+                <Button click={onClick} value="start the game!" disabled={false}/>,
+                'button'
             );
         });
 
         it('should render the current value', () => {
-            expect(button.value).to.eq("start");
+            expect(button.innerHTML).to.contain("start the game!");
         });
 
         it('should call onClick prop on click', () => {
@@ -38,7 +38,7 @@ describe('Button', () => {
             onClick = sinon.stub();
             button = wrapAndFindByTag(
                 <Button click={onClick} value="start" disabled={true}/>,
-                'input'
+                'button'
             );
         });
 

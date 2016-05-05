@@ -1,5 +1,7 @@
 import React from "react";
 import TestUtils from "react-addons-test-utils";
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 const Wrapper = React.createClass({
     render: function () {
@@ -12,7 +14,9 @@ const Wrapper = React.createClass({
 const wrap = (element) => {
     return TestUtils.renderIntoDocument(
         <Wrapper>
-            {element}
+            <MuiThemeProvider muiTheme={getMuiTheme()}>
+                {element}
+            </MuiThemeProvider>
         </Wrapper>
     );
 };
