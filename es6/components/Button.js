@@ -1,13 +1,13 @@
 import React from "react";
-import RaisedButton from 'material-ui/RaisedButton';
+import RaisedButton from "material-ui/RaisedButton";
 
 const Button = (props) => (
-    <RaisedButton 
+    <RaisedButton
         label={props.value}
         onClick={() => props.click()}
         primary={true}
         disabled={props.disabled}
-     />
+    />
 );
 
 Button.propTypes = {

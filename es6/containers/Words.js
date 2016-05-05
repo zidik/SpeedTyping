@@ -1,7 +1,6 @@
 import Words from "../components/Words";
 import {connect} from "react-redux";
-import {selectGame} from "../reducers/selectors"
-
+import {selectGame} from "../reducers/selectors";
 
 
 function mapStateToProps(state, props) {

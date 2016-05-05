@@ -9,25 +9,25 @@ const initialState = {
     currentTime: undefined,
     words: [],
     playerWords: [""],
-    
-    pastGames:[]
+
+    pastGames: []
 };
 
 export default function localGame(state = initialState, action) {
     switch (action.type) {
         case keypressActions.GLOBAL_KEY_PRESSED:
-            if(!state.gameStarted){
+            if (!state.gameStarted) {
                 //Do not listen to keypresses before starting the game
                 return state;
             }
-            if(action.key == " "){
+            if (action.key == " ") {
                 return {
                     ...state,
                     playerWords: [...state.playerWords, ""]
                 }
             } else {
                 let previousWords = state.playerWords.slice(0, -1);
-                let currentWord = state.playerWords[state.playerWords.length-1];
+                let currentWord = state.playerWords[state.playerWords.length - 1];
                 return {
                     ...state,
                     playerWords: [...previousWords, currentWord + action.key]

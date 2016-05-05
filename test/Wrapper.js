@@ -1,7 +1,7 @@
 import React from "react";
 import TestUtils from "react-addons-test-utils";
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from "material-ui/styles/getMuiTheme";
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 
 const Wrapper = React.createClass({
     render: function () {

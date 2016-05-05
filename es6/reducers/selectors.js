@@ -1,4 +1,4 @@
-import R from 'ramda';
+import R from "ramda";
 
 export const calcAccuracy = ({words, playerWords}) => {
     if (playerWords.length <= 1) return 0;
@@ -22,15 +22,15 @@ function correctWordCount(wordsA, wordsB) {
 }
 
 const highest = (fun) =>
-  R.compose(
-    R.reduce(R.max, 0),
-    R.map( (elem) => fun(elem))
-  )
+    R.compose(
+        R.reduce(R.max, 0),
+        R.map((elem) => fun(elem))
+    );
 
 export const highestWordsPerMinute = (games) => highest(calcWordsPerMinute)(games);
-export const highestAccuracy       = (games) => highest(calcAccuracy)(games);
+export const highestAccuracy = (games) => highest(calcAccuracy)(games);
 
-export function selectGame ({localGame, remoteGame}, {gameType, gameNo}){
+export function selectGame({localGame, remoteGame}, {gameType, gameNo}) {
     switch (gameType) {
         case "local":
             return localGame;

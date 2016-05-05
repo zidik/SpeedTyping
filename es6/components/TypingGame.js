@@ -1,6 +1,6 @@
 import React from "react";
 import GameInstance from "./GameInstance";
-import KeypressListener from "./../containers/KeypressListener"
+import KeypressListener from "./../containers/KeypressListener";
 
 const TypingGame = (props)=>(
     <div className="typingGame">

@@ -1,11 +1,4 @@
-import {
-    startGame,
-    stopGame,
-    resetGame,
-    GAME_START,
-    GAME_STOP,
-    GAME_RESET
-} from "../../es6/actions/localGame";
+import {startGame, stopGame, resetGame, GAME_START, GAME_STOP, GAME_RESET} from "../../es6/actions/localGame";
 import {shouldCreateAction} from "./helpers";
 
 describe('localGame actions', () => {
@@ -20,7 +13,7 @@ describe('localGame actions', () => {
     describe('stopGame', () => {
         shouldCreateAction(stopGame, GAME_STOP);
         it('should add game to action', () => {
-            let game = {a:"b",c:[1,2]}
+            let game = {a: "b", c: [1, 2]};
             let action = stopGame(game);
             expect(action.game).to.deep.eq(game);
         });

@@ -34,15 +34,15 @@ describe('GameInstance', () => {
 
     describe('local instance', () => {
         let renderedComponentTypes = [["Words", Words], ["StartStopButton", StartStopButton], ["Statistics", Statistics], ["HighScore", HighScore]];
-        shouldRenderComponents({gameType: "local", gameNo:0}, 1, renderedComponentTypes);
+        shouldRenderComponents({gameType: "local", gameNo: 0}, 1, renderedComponentTypes);
     });
 
 
     describe('remote instance', () => {
         let renderedComponentTypes = [["Words", Words], ["Statistics", Statistics], ["HighScore", HighScore]];
-        shouldRenderComponents({gameType: "remote", gameNo:0}, 1, renderedComponentTypes);
+        shouldRenderComponents({gameType: "remote", gameNo: 0}, 1, renderedComponentTypes);
         let notRenderedComponentTypes = [["StartStopButton", StartStopButton]];
-        shouldRenderComponents({gameType: "remote", gameNo:0}, 0, notRenderedComponentTypes);
+        shouldRenderComponents({gameType: "remote", gameNo: 0}, 0, notRenderedComponentTypes);
     });
 
 });

@@ -3,7 +3,7 @@ import localGame from "./localGame";
 import remoteGame from "./remoteGame";
 import fetching from "./fetching";
 import websocket from "./websocket";
-import { routerReducer as routing } from 'react-router-redux'
+import {routerReducer as routing} from "react-router-redux";
 
 export default combineReducers({
     routing,

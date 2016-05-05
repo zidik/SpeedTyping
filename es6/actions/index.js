@@ -2,7 +2,7 @@ import fetch from "isomorphic-fetch";
 import {receiveWords, requestWords} from "./fetching";
 import {startGame, stopGame, resetGame} from "./localGame";
 import {startTicking, stopTicking} from "./ticking";
-import { push } from 'react-router-redux'
+import {push} from "react-router-redux";
 
 export function start() {
     return (dispatch) => {
