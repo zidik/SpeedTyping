@@ -7,22 +7,53 @@ import {GLOBAL_KEY_PRESSED} from '../../es6/actions/keypress';
 
 
 describe('localGame', () => {
-    describe('action ' + GLOBAL_KEY_PRESSED, () => {
-        it('should change current playerWord', () => {
-            const result = localGame({playerWords: ["previous", ""]}, {
-                type: GLOBAL_KEY_PRESSED,
-                key: "a"
+    describe('action ' + GLOBAL_KEY_PRESSED, () => {     
+        describe("when game has started", () => {
+            const initialState = {
+                playerWords: ["previous"],
+                gameStarted: true
+            }
+            
+            it('should change current playerWord', () => {
+                const result = localGame(initialState, {
+                    type: GLOBAL_KEY_PRESSED,
+                    key: "X"
+                });
+                expect(initialState.gameStarted).to.eq(true);
+                expect(result.playerWords).to.deep.eq(["previousX"]);
             });
-            expect(result.playerWords).to.deep.eq(["previous", "a"]);
-        });
 
-        it('should advance to next word when space is hit', () => {
-            const result = localGame({playerWords: ["Skyrim"]}, {
-                type: GLOBAL_KEY_PRESSED,
-                key: " "
-            });
-            expect(result.playerWords).to.deep.eq(["Skyrim", ""])
+            it('should advance to next word when space is hit', () => {
+                const result = localGame(initialState, {
+                    type: GLOBAL_KEY_PRESSED,
+                    key: " "
+                });
+                expect(result.playerWords).to.deep.eq(["previous", ""])
+            });  
         });
+        describe("when game has NOT started", () => {
+            const initialState = {
+                playerWords: ["userword-ishere"],
+                gameStarted: false
+            }
+            
+            it('should NOT change current playerWord', () => {
+                const result = localGame(initialState, {
+                    type: GLOBAL_KEY_PRESSED,
+                    key: "a"
+                });
+                expect(result.playerWords).to.deep.eq(["userword-ishere"]);
+            });
+
+            it('should NOT advance to next word when space is hit', () => {
+                const result = localGame(initialState, {
+                    type: GLOBAL_KEY_PRESSED,
+                    key: " "
+                });
+                expect(result.playerWords).to.deep.eq(["userword-ishere"])
+            });  
+        });
+        
     });
 
     describe('action ' + GAME_START, () => {
@@ -46,17 +77,24 @@ describe('localGame', () => {
             expect(result.currentTime).to.eq(1231513);
         });
     });
+    
     describe('action ' + GAME_STOP, () => {
-
+        const initialState = {gameStarted: true, pastGames:[]};
+        const game = {gameinfo:"ishere"}
+        const action = {type: GAME_STOP, game}
+        
         it('should change gameStarted to false', () => {
-            const result = localGame(
-                {gameStarted: true},
-                {type: GAME_STOP}
-            );
+            const result = localGame(initialState,action);
             expect(result.gameStarted).to.eq(false);
+        });
+        
+        it('should add supplied game to past games', () => {
+            const result = localGame(initialState,action);
+            expect(result.pastGames).to.contain(game);
         });
 
     });
+    
     describe('action ' + GAME_RESET, () => {
         it('should initialize startTime with undefined', () => {
             const result = localGame(

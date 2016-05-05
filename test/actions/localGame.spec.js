@@ -19,10 +19,10 @@ describe('localGame actions', () => {
 
     describe('stopGame', () => {
         shouldCreateAction(stopGame, GAME_STOP);
-        it('should add scores to action', () => {
-            let action = stopGame(12.4, 57);
-            expect(action.score.wordsPerMinute).to.eq(12.4);
-            expect(action.score.accuracy).to.eq(57);
+        it('should add game to action', () => {
+            let game = {a:"b",c:[1,2]}
+            let action = stopGame(game);
+            expect(action.game).to.deep.eq(game);
         });
     });
 
