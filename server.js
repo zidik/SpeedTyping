@@ -13,7 +13,9 @@ var app = express();
 var server = app.listen(port, () => console.log('Server running on port ' + port));
 var wsServer = new WebSocketServer({ httpServer : server });
 wsServer.on('request', handleIncomingRequest);
-app.use(express.static(publicPath));
+
+
+
 
 // We only want to run the workflow when not in production
 if (!isProduction) {
@@ -33,6 +35,12 @@ if (!isProduction) {
   });
 
 }
+
+app.use(express.static(publicPath));
+
+app.get('/*', function(req, res){
+  res.sendFile(publicPath + '/index.html');
+});
 
 // It is important to catch any errors from the proxy or the
 // server will crash. An example of this is connecting to the
