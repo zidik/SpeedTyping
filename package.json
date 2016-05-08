@@ -43,7 +43,8 @@
   "scripts": {
     "test": "mocha",
     "test-debug": "mocha --debug-brk",
-    "start": "node server/server.js"
+    "start": "node server",
+    "postinstall": "node deploy"
   },
   "author": "Mark Laane",
   "license": "MIT",

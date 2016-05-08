@@ -2,10 +2,24 @@ export const WEBSOCKET_CONNECTION_ESTABLISHED = "WEBSOCKET_CONNECTION_ESTABLISHE
 export const WEBSOCKET_CONNECTION_DROPPED = "WEBSOCKET_CONNECTION_DROPPED";
 export const WEBSOCKET_CONNECTION_UNAVAILABLE = "WEBSOCKET_CONNECTION_UNAVAILABLE";
 
-const conf = {
-    port: 8081,
-    host: 'localhost'
-};
+
+
+function getConf() {
+    if (process.env.NODE_ENV !== 'production') {
+        return {
+            port: 3000,
+            host: 'localhost'
+        }
+    } else {
+        return {
+            port: 80,
+            host: 'speed-typing.herokuapp.com'
+        }
+    }
+}
+
+
+const conf = getConf();
 
 let connection;
 

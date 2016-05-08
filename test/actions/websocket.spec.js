@@ -24,7 +24,7 @@ describe('Websocket actions', () => {
     beforeEach(() => {
         dispatch = sinon.stub();
         getState = sinon.stub();
-        mockServer = new Server('ws://localhost:8081')
+        mockServer = new Server('ws://localhost:3000')
     });
 
     afterEach(() => {
