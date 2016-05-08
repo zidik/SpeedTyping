@@ -3,12 +3,14 @@ import {receiveWords, requestWords} from "./fetching";
 import {startGame, stopGame, resetGame} from "./localGame";
 import {startTicking, stopTicking} from "./ticking";
 import {push} from "react-router-redux";
+import {getServerConf} from "../conf"
+const conf = getServerConf();
 
 export function start() {
     return (dispatch) => {
         dispatch(resetGame());
         dispatch(requestWords());
-        return fetch('http://localhost:3000/words.json')
+        return fetch( `http://${conf.host}:${conf.port}/words.json` )
             .then(response => response.json())
             .then(
                 (words) => {
