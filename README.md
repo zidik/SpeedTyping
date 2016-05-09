@@ -1,6 +1,9 @@
 # SpeedTyping
 
-A typing game
+A typing game.
+
+Try the game: http://speed-typing.herokuapp.com/
+Open two browsers to play 1vs1.
 
 <img src="https://david-dm.org/zidik/SpeedTyping.svg" />
 
