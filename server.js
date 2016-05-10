@@ -15,16 +15,14 @@ var wsServer = new WebSocketServer({ httpServer : server });
 wsServer.on('request', handleIncomingRequest);
 
 
-
-
 // We only want to run the workflow when not in production
 if (!isProduction) {
 
   // We require the bundler inside the if block because
   // it is only needed in a development environment. Later
   // you will see why this is a good idea
-  var bundle = require('./server/bundle.js');
-  bundle();
+  var bundleSource = require('./server/bundleSource.js');
+  bundleSource();
 
   // Any requests to localhost:3000/build is proxied
   // to webpack-dev-server
