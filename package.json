@@ -13,7 +13,6 @@
     "classnames": "^2.2.3",
     "express": "^4.13.4",
     "flux": "^2.1.1",
-    "http-proxy": "^1.13.2",
     "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.11.2",
     "material-ui": "^0.15.0-beta.2",
