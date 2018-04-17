@@ -27,5 +27,3 @@ export default class KeypressListener extends React.Component {
 KeypressListener.propTypes = {
     handleKeyPress: React.PropTypes.func.isRequired
 };
-
-export default KeypressListener;
