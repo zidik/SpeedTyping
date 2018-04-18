@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "speed-typing game",
   "main": "main.js",
+  "engines": {
+    "node": "9.8.0"
+  },
   "dependencies": {
     "babel-core": "^6.7.7",
     "babel-loader": "^6.2.4",
