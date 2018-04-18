@@ -11,7 +11,6 @@ import constantActionLogger from "./middleware/ConstantActionLogger";
 import websocketPublisher from "./middleware/WebsocketPublisher";
 import reducer from "./reducers";
 import createRoutes from "./routes";
-import getMuiTheme from "material-ui/styles/getMuiTheme";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import injectTapEventPlugin from "react-tap-event-plugin";
 // Needed for onTouchTap 
@@ -37,7 +36,7 @@ let Routes = createRoutes(history);
 
 ReactDOM.render(
     <Provider store={store}>
-        <MuiThemeProvider muiTheme={getMuiTheme()}>
+        <MuiThemeProvider>
             <Routes />
         </MuiThemeProvider>
     </Provider>,

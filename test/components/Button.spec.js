@@ -22,7 +22,7 @@ describe('Button', () => {
 
         it('should call onClick prop on click', () => {
             TestUtils.Simulate.click(button);
-            expect(onClick).to.have.been.called.once;
+            expect(onClick).to.have.been.calledOnce;
         });
 
         it('should not call handleChange prop without click', () => {

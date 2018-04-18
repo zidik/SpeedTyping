@@ -21,12 +21,12 @@ module.exports = {
         loaders: [
             {
                 test: /\.jsx?$/,
-                loader: 'babel',
+                loader: 'babel-loader',
                 exclude: /(node_modules|bower_components)/
             },
             {
                 test: /\.css$/,
-                loader: 'style!css'
+                loader: 'style-loader!css'
             }
         ]
     },
