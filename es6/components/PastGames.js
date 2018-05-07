@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from "react";
 import GameInstance from "./GameInstance";
 
@@ -9,10 +10,10 @@ const PastGames = (props)=>(
 );
 
 PastGames.propTypes = {
-    games: React.PropTypes.arrayOf(
-        React.PropTypes.shape({
-            gameType: React.PropTypes.string,
-            gameNo: React.PropTypes.number
+    games: PropTypes.arrayOf(
+        PropTypes.shape({
+            gameType: PropTypes.string,
+            gameNo: PropTypes.number
         })
     ).isRequired
 };

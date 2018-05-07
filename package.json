@@ -19,6 +19,7 @@
     "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.11.2",
     "material-ui": "^0.20.0",
+    "prop-types": "^15.6.1",
     "ramda": "^0.21.0",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",

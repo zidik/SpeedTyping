@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from "react";
 
 const Statistics = (props) =>
@@ -12,9 +13,9 @@ const Statistics = (props) =>
     </div>;
 
 Statistics.propTypes = {
-    wordsPerMinute: React.PropTypes.string.isRequired,
-    accuracy: React.PropTypes.string.isRequired,
-    time: React.PropTypes.string.isRequired
+    wordsPerMinute: PropTypes.string.isRequired,
+    accuracy: PropTypes.string.isRequired,
+    time: PropTypes.string.isRequired
 };
 
 export default Statistics;

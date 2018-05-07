@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from "react";
 
 const HighScore = (props) =>
@@ -10,8 +11,8 @@ const HighScore = (props) =>
     </div>;
 
 HighScore.propTypes = {
-    wordsPerMinute: React.PropTypes.string.isRequired,
-    accuracy: React.PropTypes.string.isRequired
+    wordsPerMinute: PropTypes.string.isRequired,
+    accuracy: PropTypes.string.isRequired
 };
 
 export default HighScore;

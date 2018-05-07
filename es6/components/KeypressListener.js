@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from "react";
 
 export default class KeypressListener extends React.Component {
@@ -25,5 +26,5 @@ export default class KeypressListener extends React.Component {
 }
 
 KeypressListener.propTypes = {
-    handleKeyPress: React.PropTypes.func.isRequired
+    handleKeyPress: PropTypes.func.isRequired
 };

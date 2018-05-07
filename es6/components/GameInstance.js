@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from "react";
 import Statistics from "./../containers/Statistics";
 import Words from "./../containers/Words";
@@ -28,8 +29,8 @@ function GameInstance(props) {
 }
 
 GameInstance.propTypes = {
-    gameType: React.PropTypes.string.isRequired,
-    gameNo: React.PropTypes.number.isRequired
+    gameType: PropTypes.string.isRequired,
+    gameNo: PropTypes.number.isRequired
 };
 
 export default GameInstance;

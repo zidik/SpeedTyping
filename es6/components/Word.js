@@ -1,4 +1,5 @@
 import Letter from "../components/Letter";
+import PropTypes from 'prop-types';
 import R from "ramda";
 import classNames from "classnames";
 import React from "react";
@@ -36,9 +37,9 @@ const Word = (props) => {
 };
 
 Word.propTypes = {
-    word: React.PropTypes.string.isRequired,
-    playerWord: React.PropTypes.string,
-    status: React.PropTypes.string.isRequired
+    word: PropTypes.string.isRequired,
+    playerWord: PropTypes.string,
+    status: PropTypes.string.isRequired
 };
 
 export default Word

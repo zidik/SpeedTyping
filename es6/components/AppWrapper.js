@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from "react";
 import AppBar from "material-ui/AppBar";
 import IconButton from "material-ui/IconButton";
@@ -23,8 +24,8 @@ const AppWrapper = (props) =>
     ;
 
 AppWrapper.propTypes = {
-    children: React.PropTypes.node.isRequired,
-    handleClick: React.PropTypes.func.isRequired
+    children: PropTypes.node.isRequired,
+    handleClick: PropTypes.func.isRequired
 };
 
 export default AppWrapper;

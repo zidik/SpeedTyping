@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from "react";
 import GameInstance from "./GameInstance";
 import KeypressListener from "./../containers/KeypressListener";
@@ -14,7 +15,7 @@ const TypingGame = (props)=>(
 );
 
 TypingGame.propTypes = {
-    showRemote: React.PropTypes.bool.isRequired
+    showRemote: PropTypes.bool.isRequired
 };
 
 export default TypingGame;

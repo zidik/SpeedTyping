@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from "react";
 import classNames from "classnames";
 
@@ -11,8 +12,8 @@ const Letter = (props) => {
 };
 
 Letter.propTypes = {
-    letter: React.PropTypes.string.isRequired,
-    status: React.PropTypes.string.isRequired
+    letter: PropTypes.string.isRequired,
+    status: PropTypes.string.isRequired
 };
 
 export default Letter;

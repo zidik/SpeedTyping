@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import R from "ramda";
 import Word from "../components/Word";
 
@@ -38,9 +39,9 @@ const Words = (props) => {
 };
 
 Words.propTypes = {
-    words: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
-    playerWords: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
-    active: React.PropTypes.number.isRequired
+    words: PropTypes.arrayOf(PropTypes.string).isRequired,
+    playerWords: PropTypes.arrayOf(PropTypes.string).isRequired,
+    active: PropTypes.number.isRequired
 };
 
 export default Words;
