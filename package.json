@@ -22,7 +22,7 @@
     "prop-types": "^15.6.1",
     "ramda": "^0.21.0",
     "react": "^15.0.1",
-    "react-dom": "^15.0.1",
+    "react-dom": "^16.0.1",
     "react-redux": "^4.4.5",
     "react-router": "^2.4.0",
     "react-router-redux": "^4.0.4",
