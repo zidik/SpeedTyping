@@ -1,5 +1,5 @@
 import React from "react";
-import TestUtils from "react-addons-test-utils";
+import TestUtils from "react-dom/test-utils";
 import GameInstance from "../../es6/components/GameInstance";
 import Words from "../../es6/containers/Words";
 import Statistics from "../../es6/containers/Statistics";
