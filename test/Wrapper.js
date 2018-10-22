@@ -3,13 +3,13 @@ import TestUtils from "react-dom/test-utils";
 import getMuiTheme from "material-ui/styles/getMuiTheme";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 
-const Wrapper = React.createClass({
-    render: function () {
+class Wrapper extends React.Component {
+    render() {
         return (
             <div>{this.props.children}</div>
         );
     }
-});
+}
 
 const wrap = (element) => {
     return TestUtils.renderIntoDocument(
