@@ -37,7 +37,7 @@
     "chai": "^4.1.2",
     "eslint": "^2.8.0",
     "eslint-plugin-react": "^5.0.1",
-    "jsdom": "^9.0.0",
+    "jsdom": "^16.5.0",
     "mocha": "^5.1.1",
     "mock-socket": "^2.0.0",
     "redux-devtools": "^3.2.0",
